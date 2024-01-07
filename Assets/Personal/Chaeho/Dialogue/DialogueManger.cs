@@ -60,7 +60,7 @@ public class DialogueManger : MonoBehaviour
 
     private void Start()
     {
-        StartDialogue("/Personal/Chaeho/asset/Dialogue/CSV/Prologue copy.csv");    
+        StartDialogue("/Personal/Chaeho/asset/Dialogue/CSV/Rock1.csv");    
     }
     
     // Update is called once per frame
@@ -295,6 +295,5 @@ public class DialogueManger : MonoBehaviour
         
         CloseDialogue();
     }
-    
     
 }
