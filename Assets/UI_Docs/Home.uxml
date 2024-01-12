@@ -1,0 +1,36 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI_Docs/Home_USS.uss?fileID=7433441132597879392&amp;guid=49fb4a20738588b449e33711cb435a13&amp;type=3#Home_USS" />
+    <ui:VisualElement name="Root" style="width: 200%; height: 100%; justify-content: space-between; align-items: center; flex-direction: row;">
+        <ui:VisualElement name="Home_Bottom" style="width: 100%; height: 100%; justify-content: space-between; align-items: center; flex-direction: column; translate: 0 0;">
+            <ui:VisualElement name="TopUI" class="UI_TOPnBOT" style="justify-content: center;">
+                <ui:VisualElement name="Section1" class="Sections">
+                    <ui:IMGUIContainer name="Icon" style="width: 30px; height: 30px; background-color: rgb(140, 140, 140);" />
+                    <ui:Label text="Text" display-tooltip-when-elided="true" name="Section_Text" style="color: rgb(0, 0, 0); font-size: 15px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Section2" class="Sections" style="flex-direction: row; align-items: center; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+                    <ui:IMGUIContainer name="Icon" style="width: 30px; height: 30px; background-color: rgb(140, 140, 140);" />
+                    <ui:Label text="Text" display-tooltip-when-elided="true" name="Section_Text" style="color: rgb(0, 0, 0); font-size: 15px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Section3" class="Sections" style="flex-direction: row; align-items: center; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+                    <ui:IMGUIContainer name="Icon" style="width: 30px; height: 30px; background-color: rgb(140, 140, 140);" />
+                    <ui:Label text="Text" display-tooltip-when-elided="true" name="Section_Text" style="color: rgb(0, 0, 0); font-size: 15px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="BottomUI" class="UI_TOPnBOT" style="border-top-left-radius: 23px; border-top-right-radius: 23px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; flex-direction: row; align-items: center; justify-content: center;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Settings" class="Button Button_Unclick" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Map" class="Button Button_Unclick" />
+                <ui:Button display-tooltip-when-elided="true" name="Home" class="Button" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Endings" class="Button Button_Unclick" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Profile" class="Button Button_Unclick" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Map_Bottom" class="Map_In" style="justify-content: center;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-right: 60%;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-right: 0; margin-left: 40%;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-right: 10%;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-left: 50%;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-right: 20%;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-left: 20%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
