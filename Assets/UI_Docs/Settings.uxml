@@ -1,11 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI_Docs/Settings_USS.uss?fileID=7433441132597879392&amp;guid=70610e9a23f1c4a418182d9d19bcedbd&amp;type=3#Settings_USS" />
     <ui:VisualElement name="Settings_Root" style="width: 100%; height: 100%; background-color: rgba(226, 226, 226, 0.41); align-items: center; justify-content: center;">
-        <ui:Label text="환경설정" display-tooltip-when-elided="true" style="font-size: 35px; color: rgba(0, 0, 0, 255);" />
-        <ui:VisualElement name="PopUp" style="width: 80%; height: 60%; margin-top: 8%; background-color: rgb(255, 255, 255); border-left-color: rgb(165, 165, 165); border-right-color: rgb(165, 165, 165); border-top-color: rgb(165, 165, 165); border-bottom-color: rgb(165, 165, 165); border-top-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px; padding-top: 5%; padding-right: 8%; padding-bottom: 5%; padding-left: 8%;">
-            <ui:SliderInt picking-mode="Ignore" label="TExt" value="42" high-value="100" name="MySlider" class="MySlider" />
-            <ui:SliderInt picking-mode="Ignore" label="SliderInt" value="42" high-value="100" class="MySlider" />
-            <ui:SliderInt picking-mode="Ignore" label="SliderInt" value="42" high-value="100" class="MySlider" />
+        <ui:Label text="환경설정" display-tooltip-when-elided="true" style="font-size: 35px; color: rgb(0, 0, 0);" />
+        <ui:VisualElement name="PopUp" style="width: 70%; height: 60%; margin-top: 8%; background-color: rgb(255, 255, 255); border-left-color: rgb(165, 165, 165); border-right-color: rgb(165, 165, 165); border-top-color: rgb(165, 165, 165); border-bottom-color: rgb(165, 165, 165); border-top-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px; padding-top: 5%; padding-right: 5%; padding-bottom: 5%; padding-left: 5%;">
+            <ui:SliderInt picking-mode="Ignore" label="Text" value="0" high-value="100" name="MySlider" low-value="0" class="MySlider" style="width: 100%; height: 15%;" />
             <ui:VisualElement name="MyRadio" class="MyRadio">
                 <ui:Label text="Label" display-tooltip-when-elided="true" style="font-size: 16px; color: rgb(0, 0, 0);" />
                 <ui:VisualElement style="flex-direction: row;">
@@ -13,8 +11,8 @@
                     <ui:RadioButton />
                 </ui:VisualElement>
             </ui:VisualElement>
+            <ui:Label text="Label" display-tooltip-when-elided="true" style="font-size: 16px; color: rgb(0, 0, 0);" />
             <ui:VisualElement name="MyRadio" class="MyRadio">
-                <ui:Label text="Label" display-tooltip-when-elided="true" style="font-size: 16px; color: rgb(0, 0, 0);" />
                 <ui:VisualElement style="flex-direction: row;">
                     <ui:RadioButton />
                     <ui:RadioButton />
