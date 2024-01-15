@@ -221,7 +221,7 @@ public class DialogueManger : MonoBehaviour
         
     }
 
-    void CloseDialogue()
+    public void CloseDialogue()
     {
         for (int i = 0; diaolgueObject.Length > i; i++)
         {
