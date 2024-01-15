@@ -1,2 +1,2 @@
-﻿choices,c1,c2,c3,c1to,c2to
-2,( 얼어 죽을 바에는 따라가보자 ),( 납치? 장기털이? 도망가자! ),,12,17
+﻿choices,c1,c2,c3,c1to,c2to,c3to
+3,선택지1,"선택지2 ","선택지2 ",parameter1,parameter2,parameter3

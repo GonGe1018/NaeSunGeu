@@ -49,10 +49,12 @@ public class DialogueManger : MonoBehaviour
     [SerializeField] private IllustHandler standIllust;//스탠딩 일러 매니저
     [SerializeField] private IllustHandler backgroundIllust;//스탠딩 일러 매니저
     [SerializeField] private EffectManager effectManager;//효과 매니저
+    [SerializeField] private ChoiceManager choiceManager;
 
     [SerializeField] public TMP_Text nameText;
     [SerializeField] public TMP_Text contentText;
 
+    public bool isSkipAnim = false; //오픈, 클로즈 애니메이션 여부
     public bool isChoosing;
     public bool isExecuting = false;
     public int index;//다이얼로그 인덱스값
@@ -113,13 +115,11 @@ public class DialogueManger : MonoBehaviour
 
             if (isExistBg && dialogue.effectId == 3)
             {
-                print("줌" + dialogue.effectId);
                 paramGameObject = backgroundIllust.illusts[dialogue.backgroundId, dialogue.backgroundCategori];
                 effectManager.StartEffect(dialogue.effectId, param: dialogue.effectParam, getGameObject: paramGameObject); // 배경이 있는 경우에만 특정 이펙트 시작
             }
             else
             {
-                print("노줌" + dialogue.effectId);
                 effectManager.StartEffect(dialogue.effectId, param: dialogue.effectParam); // 배경이 없거나 특정 이펙트가 아닌 경우 이펙트 시작
             }
         }
@@ -129,10 +129,12 @@ public class DialogueManger : MonoBehaviour
             switch (dialogue.eventId){
                 case 0:
                     break;
-                case 1://선택지
+                case 1://선택지 선택하기
                     if (dialogue.eventParam != "")
                     {
                         print($"{dialogue.eventId} {dialogue.eventParam}" );
+                        choiceManager.StartChoice(dialogue.eventParam);
+                        isChoosing = true;
                     }
                     break;
                 default:
@@ -198,6 +200,12 @@ public class DialogueManger : MonoBehaviour
                 //다이얼로그 파싱
                 index = startIndex;
                 effectManager.InitEffect();
+                choiceManager.InitChoice();
+                for(int i = 0; diaolgueObject.Length > i; i++)//다이얼로그 오브젝트 활성화
+                {
+                    diaolgueObject[i].SetActive(true);
+                }
+
                 StartCoroutine(OpenDialogueBox());
             }
             else
@@ -215,6 +223,10 @@ public class DialogueManger : MonoBehaviour
 
     void CloseDialogue()
     {
+        for (int i = 0; diaolgueObject.Length > i; i++)
+        {
+            diaolgueObject[i].SetActive(false);
+        }
         Debug.Log($"다이얼로그 종료");
         isExecuting = false;
     }
@@ -270,56 +282,53 @@ public class DialogueManger : MonoBehaviour
 
     IEnumerator OpenDialogueBox()
     {
-        for(int i = 0; diaolgueObject.Length > i; i++)//다이얼로그 오브젝트 활성화
-        {
-            diaolgueObject[i].SetActive(true);
-        }
-        
-        RectTransform rectTransform = diaolgueObject[2].GetComponent<RectTransform>();
 
-        Vector3 originScale = new Vector3(1,1,1);
-        float nowScaleY = 0;
-        rectTransform.localScale =
-            new Vector3(originScale.x , 0, originScale.z);                                                      
-                
-        while (nowScaleY < originScale.y)
+        if(!isSkipAnim)
         {
+            RectTransform rectTransform = diaolgueObject[2].GetComponent<RectTransform>();
+
+            Vector3 originScale = new Vector3(1, 1, 1);
+            float nowScaleY = 0;
             rectTransform.localScale =
-                new Vector3(originScale.x, nowScaleY, originScale.z);
+                new Vector3(originScale.x, 0, originScale.z);
 
-            nowScaleY += 10 * Time.deltaTime;
-            yield return null;
+            while (nowScaleY < originScale.y)
+            {
+                rectTransform.localScale =
+                    new Vector3(originScale.x, nowScaleY, originScale.z);
+
+                nowScaleY += 10 * Time.deltaTime;
+                yield return null;
+            }
+
+            rectTransform.localScale =
+                new Vector3(originScale.x, originScale.y, originScale.z);
         }
-        
-        rectTransform.localScale =
-            new Vector3(originScale.x, originScale.y, originScale.z);
         
         ShowDialogue(dialougeArr[index]);
     }
     
     IEnumerator CloseDialogueBox()
     {
-        RectTransform rectTransform = diaolgueObject[2].GetComponent<RectTransform>();
-
-        Vector3 originScale = new Vector3(1, 1, 1);
-
-        float nowScaleY = originScale.y;
-                
-        while (0 < nowScaleY)
+        if(!isSkipAnim)
         {
+            RectTransform rectTransform = diaolgueObject[2].GetComponent<RectTransform>();
+
+            Vector3 originScale = new Vector3(1, 1, 1);
+
+            float nowScaleY = originScale.y;
+
+            while (0 < nowScaleY)
+            {
+                rectTransform.localScale =
+                    new Vector3(originScale.x, nowScaleY, originScale.z);
+
+                nowScaleY -= 10 * Time.deltaTime;
+                yield return null;
+            }
+
             rectTransform.localScale =
-                new Vector3(originScale.x, nowScaleY, originScale.z);
-
-            nowScaleY -= 10 * Time.deltaTime;
-            yield return null;
-        }
-        
-        rectTransform.localScale =
-            new Vector3(originScale.x, 0, originScale.z);
-        
-        for (int i = 0; diaolgueObject.Length > i; i++)
-        {
-            diaolgueObject[i].SetActive(false);
+                new Vector3(originScale.x, 0, originScale.z);
         }
         
         CloseDialogue();
