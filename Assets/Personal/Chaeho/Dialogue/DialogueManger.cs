@@ -17,6 +17,7 @@ public class Dialouge//다이얼로그 객체
         backgroundId,
         backgroundCategori,
         effectId,
+        bgmId,
         soundId,
         eventId;
     public float effectParam;
@@ -26,7 +27,8 @@ public class Dialouge//다이얼로그 객체
         string illustId = "", string illustCategori = "",
         string backgroundId = "", string backgroundCategori = "",
         string effectId="", string effectParam = "", 
-        string soundId="", string eventId="", string eventParam=""
+        string soundId="", string bgmId="",
+        string eventId="", string eventParam=""
         )
     {
         this.name =  name;
@@ -38,6 +40,7 @@ public class Dialouge//다이얼로그 객체
         this.effectId = effectId==myDefault ? -1 : int.Parse(effectId);
         this.effectParam = effectParam == myDefault ? -1 : float.Parse(effectParam);
         this.soundId = soundId == myDefault ? -1 : int.Parse(soundId);
+        this.bgmId = bgmId == myDefault ? -1 : int.Parse(bgmId);
         this.eventId = eventId == myDefault ? -1 : int.Parse(eventId);
         this.eventParam = eventParam;
         }
@@ -124,7 +127,28 @@ public class DialogueManger : MonoBehaviour
             }
         }
 
-        if (dialogue.eventId != -1)
+        if (dialogue.bgmId != -1) //배경 음악 정보가 있는 경우
+        {
+            if (dialogue.bgmId == 0)
+            {
+                //게임매니저(or 사운드매니저).배경음악 종료
+                //ex) gameManager.StopBGM();
+            }
+            else
+            {
+                //게임매니저(or 사운드매니저).배경음악 재생
+                //ex) gameManager.PlayBGM(int형 배경음악 정보);
+            }
+        }
+        
+        if (dialogue.soundId != -1) //효과음 음악 정보가 있는 경우
+        {
+            //게임매니저(or 사운드매니저).효과음악 재생
+            //ex) gameManager.PlaySound(int형 효과음 정보);
+        }
+        
+
+        if (dialogue.eventId != -1)//이벤트 정보가 있는 경우
         {
             switch (dialogue.eventId){
                 case 0:
@@ -160,6 +184,7 @@ public class DialogueManger : MonoBehaviour
                 effectId = "",
                 effectParam = "",
                 soundId = "",
+                bgmId = "",
                 eventId = "",
                 eventParam = "";
                 
@@ -172,6 +197,7 @@ public class DialogueManger : MonoBehaviour
             effectId = csvData[i]["effectId"].ToString();
             effectParam = csvData[i]["effectParam"].ToString();
             soundId = csvData[i]["soundId"].ToString();
+            bgmId = csvData[i]["bgmId"].ToString();
             eventId = csvData[i]["eventId"].ToString();
             eventParam = csvData[i]["eventParam"].ToString();
 
@@ -179,7 +205,7 @@ public class DialogueManger : MonoBehaviour
                 illustId: illustId, illustCategori: illustCategori,
                 backgroundId: backgroundId, backgroundCategori: backgroundCategori,
                 effectId: effectId, effectParam: effectParam,
-                soundId: soundId,
+                soundId: soundId, bgmId: bgmId,
                 eventId: eventId, eventParam: eventParam
             );
             dialougeArr[i] = generateDlg;
@@ -188,7 +214,6 @@ public class DialogueManger : MonoBehaviour
     
     public void StartDialogue(string dialogueAdress="", int startIndex=0)
     {
-        
         if(!isExecuting)
         {
             if (dialogueAdress != "")
