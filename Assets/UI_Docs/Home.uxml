@@ -1,36 +1,38 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI_Docs/Home_USS.uss?fileID=7433441132597879392&amp;guid=49fb4a20738588b449e33711cb435a13&amp;type=3#Home_USS" />
-    <ui:VisualElement name="Root" style="width: 200%; height: 100%; justify-content: space-between; align-items: center; flex-direction: row;">
+    <ui:VisualElement name="Root" style="width: 100%; height: 100%; justify-content: space-between; align-items: center; flex-direction: row;">
         <ui:VisualElement name="Home_Bottom" style="width: 100%; height: 100%; justify-content: space-between; align-items: center; flex-direction: column; translate: 0 0;">
-            <ui:VisualElement name="TopUI" class="UI_TOPnBOT" style="justify-content: center;">
-                <ui:VisualElement name="Section1" class="Sections">
-                    <ui:IMGUIContainer name="Icon" style="width: 30px; height: 30px; background-color: rgb(140, 140, 140);" />
-                    <ui:Label text="Text" display-tooltip-when-elided="true" name="Section_Text" style="color: rgb(0, 0, 0); font-size: 15px;" />
+            <ui:VisualElement name="TopUI" class="UI_TOPnBOT" style="justify-content: center; padding-right: 2%; padding-left: 2%;">
+                <ui:VisualElement name="Section1" class="Sections" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;">
+                    <ui:IMGUIContainer name="Icon" style="width: 40%; height: 50%; background-color: rgba(140, 140, 140, 0); background-image: url(&apos;project://database/Assets/UI_Docs/Icon/time_fill.png?fileID=21300000&amp;guid=ba49437b70108d344ad060b32322f0b3&amp;type=3#time_fill&apos;); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    <ui:Label text="Text" display-tooltip-when-elided="true" name="Section_Text" style="color: rgb(0, 0, 0); font-size: 30px; -unity-font: url(&apos;project://database/Assets/UI_Docs/Fonts/NPSfont_extrabold.otf?fileID=12800000&amp;guid=05846fb5426e7674eb19ade02abd3381&amp;type=3#NPSfont_extrabold&apos;); -unity-font-definition: url(&apos;project://database/Assets/UI_Docs/Fonts/NPSfont_extrabold%20SDF.asset?fileID=11400000&amp;guid=4c24979d3010fcc4281e3316de0279a1&amp;type=2#NPSfont_extrabold SDF&apos;);" />
                 </ui:VisualElement>
-                <ui:VisualElement name="Section2" class="Sections" style="flex-direction: row; align-items: center; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
-                    <ui:IMGUIContainer name="Icon" style="width: 30px; height: 30px; background-color: rgb(140, 140, 140);" />
-                    <ui:Label text="Text" display-tooltip-when-elided="true" name="Section_Text" style="color: rgb(0, 0, 0); font-size: 15px;" />
+                <ui:VisualElement name="Section2" class="Sections" style="flex-direction: row; align-items: center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+                    <ui:IMGUIContainer name="Icon" style="width: 40%; height: 50%; background-color: rgba(140, 140, 140, 0); background-image: url(&apos;project://database/Assets/UI_Docs/Icon/calendar_fill.png?fileID=21300000&amp;guid=47a6c06c4f21e60459857ab4e0c4994b&amp;type=3#calendar_fill&apos;);" />
+                    <ui:Label text="Text" display-tooltip-when-elided="true" name="Section_Text" style="color: rgb(0, 0, 0); font-size: 30px; -unity-font: url(&apos;project://database/Assets/UI_Docs/Fonts/NPSfont_extrabold.otf?fileID=12800000&amp;guid=05846fb5426e7674eb19ade02abd3381&amp;type=3#NPSfont_extrabold&apos;); -unity-font-definition: url(&apos;project://database/Assets/UI_Docs/Fonts/NPSfont_extrabold%20SDF.asset?fileID=11400000&amp;guid=4c24979d3010fcc4281e3316de0279a1&amp;type=2#NPSfont_extrabold SDF&apos;);" />
                 </ui:VisualElement>
-                <ui:VisualElement name="Section3" class="Sections" style="flex-direction: row; align-items: center; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
-                    <ui:IMGUIContainer name="Icon" style="width: 30px; height: 30px; background-color: rgb(140, 140, 140);" />
-                    <ui:Label text="Text" display-tooltip-when-elided="true" name="Section_Text" style="color: rgb(0, 0, 0); font-size: 15px;" />
+                <ui:VisualElement name="Section3" class="Sections" style="flex-direction: row; align-items: center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+                    <ui:IMGUIContainer name="Icon" style="width: 40%; height: 50%; background-color: rgba(140, 140, 140, 0); background-image: url(&apos;project://database/Assets/UI_Docs/Icon/lightning_fill.png?fileID=21300000&amp;guid=bd57b35bb7f5f734c920b21fe97e8e63&amp;type=3#lightning_fill&apos;);" />
+                    <ui:Label text="Text" display-tooltip-when-elided="true" name="Section_Text" style="color: rgb(0, 0, 0); font-size: 30px; -unity-font-definition: url(&apos;project://database/Assets/UI_Docs/Fonts/NPSfont_extrabold%20SDF.asset?fileID=11400000&amp;guid=4c24979d3010fcc4281e3316de0279a1&amp;type=2#NPSfont_extrabold SDF&apos;); -unity-font: url(&apos;project://database/Assets/UI_Docs/Fonts/NPSfont_extrabold.otf?fileID=12800000&amp;guid=05846fb5426e7674eb19ade02abd3381&amp;type=3#NPSfont_extrabold&apos;);" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="BottomUI" class="UI_TOPnBOT" style="border-top-left-radius: 23px; border-top-right-radius: 23px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; flex-direction: row; align-items: center; justify-content: center;">
-                <ui:Button text="Button" display-tooltip-when-elided="true" name="Settings" class="Button Button_Unclick" />
-                <ui:Button text="Button" display-tooltip-when-elided="true" name="Map" class="Button Button_Unclick" />
-                <ui:Button display-tooltip-when-elided="true" name="Home" class="Button" />
-                <ui:Button text="Button" display-tooltip-when-elided="true" name="Endings" class="Button Button_Unclick" />
-                <ui:Button text="Button" display-tooltip-when-elided="true" name="Profile" class="Button Button_Unclick" />
+            <ui:VisualElement name="BottomUI" class="UI_TOPnBOT" style="border-top-left-radius: 23px; border-top-right-radius: 23px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; flex-direction: row; align-items: center; justify-content: space-between; padding-right: 5%; padding-left: 5%; padding-bottom: 1%; padding-top: 2%;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Settings" class="Button Button_Unclick" style="background-color: rgba(88, 88, 88, 0); background-image: none;">
+                    <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/UI_Docs/Icon/settings_icon.png?fileID=21300000&amp;guid=6eb6109d51cb634498a46f53d110f25b&amp;type=3#settings_icon&apos;); width: 100%; height: 80%; -unity-background-image-tint-color: rgb(255, 255, 255);" />
+                </ui:Button>
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Map" class="Button Button_Unclick" style="background-color: rgba(88, 88, 88, 0); background-image: none;">
+                    <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/UI_Docs/Icon/location_icon.png?fileID=21300000&amp;guid=2b4c645376cfdc8409a3f1a9b58b870b&amp;type=3#location_icon&apos;); width: 90%; height: 80%;" />
+                </ui:Button>
+                <ui:Button display-tooltip-when-elided="true" name="Home" class="Button Button_Unclick" style="background-image: none; background-color: rgba(88, 88, 88, 0);">
+                    <ui:IMGUIContainer style="width: 100%; height: 90%; background-image: url(&apos;project://database/Assets/UI_Docs/Icon/home_2_fill.png?fileID=21300000&amp;guid=378e31aef8a2eaa4f82ec3518726c686&amp;type=3#home_2_fill&apos;);" />
+                </ui:Button>
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Endings" class="Button Button_Unclick">
+                    <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/UI_Docs/Icon/endings_icon.png?fileID=21300000&amp;guid=d7df04d98c465324bb8568d720e7c928&amp;type=3#endings_icon&apos;); width: 100%; height: 80%;" />
+                </ui:Button>
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Profile" class="Button Button_Unclick">
+                    <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/UI_Docs/Icon/user_icon.png?fileID=21300000&amp;guid=fe1d09acb187fc142ac7ec2557367b6f&amp;type=3#user_icon&apos;); width: 80%; height: 80%;" />
+                </ui:Button>
             </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement name="Map_Bottom" class="Map_In" style="justify-content: center;">
-            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-right: 60%;" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-right: 0; margin-left: 40%;" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-right: 10%;" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-left: 50%;" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-right: 20%;" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" class="Map_Button" style="margin-left: 20%;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
