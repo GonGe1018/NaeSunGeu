@@ -17,6 +17,20 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private DialogueManger dialogueManger;
 
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(instance);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -31,19 +45,24 @@ public class GameManager : MonoBehaviour
 
     public void Choosen(string str) //선택지에 따른 값 수정 (회의 후 수정예정)
     {
-        string[] values = str.Split('_');
-        int heroineID, value;
-        switch (values[0])
+        string[] datas = str.Split('_'); //히로인ID_호감도 변경 값_그외.. ('_(언더바)'로 데이터 값을 나누는 방식
+
+        int heroineID,
+            love;
+        
+        if (datas[0] != string.Empty) //히로인 ID값 가져오기
         {
-            case "RG": heroineID = 0;  break;
-            case "Zero": heroineID = 1; break;
-            case "Wop": heroineID = 2; break;
-            case "Ed": heroineID = 3; break;
-            default: return;
+            heroineID = int.Parse(datas[0]);
         }
 
-        value = int.Parse(values[2]);
-        SetLove(heroineID, value);
+        if (datas[1] != string.Empty) //호감도 변경 값 가져오기
+        {
+            love = int.Parse(datas[1]);
+        }
+
+        //그 외 변경사항 (추가예정)
+
+
     }
 
     int SetHP(int value) //체력 증감 함수

@@ -16,6 +16,21 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip BGM1; //배경음1
     [SerializeField] private AudioClip SFX1; //효과음1
 
+    public static SoundManager instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(instance);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     public void BGMvolume(float val) //BGM 음량 조절 함수 (0 <= val <= 1)
     {
