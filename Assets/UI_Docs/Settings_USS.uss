@@ -1,0 +1,154 @@
+.MySlider {
+    flex-direction: column;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.MyRadio {
+    height: 15%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#unity-drag-container {
+    background-color: rgb(180, 180, 180);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 21px;
+    border-top-right-radius: 21px;
+    border-bottom-right-radius: 21px;
+    border-bottom-left-radius: 21px;
+    align-items: stretch;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 8%;
+    padding-left: 0;
+    font-size: 0;
+}
+
+#unity-tracker {
+    background-color: rgb(184, 184, 184);
+    height: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    overflow: hidden;
+    width: 100%;
+    align-items: stretch;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+#unity-dragger {
+    width: 0;
+    height: 24px;
+    margin-top: -1%;
+    margin-right: -0.5%;
+    margin-bottom: -0.5%;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    transform-origin: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.Bar {
+    width: 2000px;
+    height: 500px;
+    background-color: rgb(238, 174, 240);
+    align-items: stretch;
+    overflow: visible;
+    left: 0;
+    top: 85%;
+    right: 0;
+    bottom: 0;
+    transform-origin: left;
+    min-width: 0;
+    position: relative;
+    translate: 0 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 0;
+    margin-top: 0;
+    border-left-color: rgb(238, 174, 240);
+    border-right-color: rgb(238, 174, 240);
+    border-top-color: rgb(238, 174, 240);
+    border-bottom-color: rgb(238, 174, 240);
+    border-top-width: 88px;
+    border-right-width: 88px;
+    border-bottom-width: 88px;
+    border-left-width: 88px;
+    padding-bottom: 0;
+    opacity: 1;
+}
+
+.Head {
+    border-left-color: rgb(0, 10, 255);
+    border-right-color: rgb(0, 10, 255);
+    border-top-color: rgb(0, 10, 255);
+    border-bottom-color: rgb(0, 10, 255);
+    width: 15px;
+    height: 50%;
+    margin-top: 0;
+}
+
+.radio_off {
+    width: 40%;
+    height: 100%;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 24px;
+    color: rgba(238, 238, 238, 0.91);
+    background-color: rgb(180, 180, 180);
+    transition-duration: 1s;
+    transition-timing-function: ease-out-bounce;
+}
+
+.radio_on {
+    background-color: rgb(238, 174, 240);
+    color: rgb(0, 0, 0);
+    width: 60%;
+    height: 100%;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-bounce;
+}

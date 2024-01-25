@@ -1,0 +1,31 @@
+.Prof_Out {
+    width: 40%;
+    height: 60%;
+    background-color: rgb(255, 255, 255);
+    border-left-color: rgb(217, 218, 217);
+    border-right-color: rgb(217, 218, 217);
+    border-top-color: rgb(217, 218, 217);
+    border-bottom-color: rgb(217, 218, 217);
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    translate: 100% 0;
+    border-top-left-radius: 70px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 70px;
+    padding-top: 53px;
+    padding-right: 53px;
+    padding-bottom: 53px;
+    padding-left: 53px;
+    font-size: 40px;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+
+.Prof_In {
+    translate: 0 0;
+    font-size: 40px;
+    transition-timing-function: ease-out;
+    transition-duration: 1s;
+}

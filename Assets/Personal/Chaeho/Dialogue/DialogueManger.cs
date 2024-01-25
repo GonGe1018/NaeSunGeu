@@ -10,14 +10,16 @@ using UnityEngine.Serialization;
 public class Dialouge//다이얼로그 객체
 {
     private string myDefault = "";
-    public string name, content;
+    public string name, content, eventParam;
+
     public int illustId,
         illustCategori,
         backgroundId,
         backgroundCategori,
         effectId,
+        bgmId,
         soundId,
-        eventId;       
+        eventId;
     public float effectParam;
 
     public Dialouge(
@@ -25,7 +27,8 @@ public class Dialouge//다이얼로그 객체
         string illustId = "", string illustCategori = "",
         string backgroundId = "", string backgroundCategori = "",
         string effectId="", string effectParam = "", 
-        string soundId="", string eventId=""
+        string soundId="", string bgmId="",
+        string eventId="", string eventParam=""
         )
     {
         this.name =  name;
@@ -37,7 +40,9 @@ public class Dialouge//다이얼로그 객체
         this.effectId = effectId==myDefault ? -1 : int.Parse(effectId);
         this.effectParam = effectParam == myDefault ? -1 : float.Parse(effectParam);
         this.soundId = soundId == myDefault ? -1 : int.Parse(soundId);
+        this.bgmId = bgmId == myDefault ? -1 : int.Parse(bgmId);
         this.eventId = eventId == myDefault ? -1 : int.Parse(eventId);
+        this.eventParam = eventParam;
         }
 }
 
@@ -47,10 +52,13 @@ public class DialogueManger : MonoBehaviour
     [SerializeField] private IllustHandler standIllust;//스탠딩 일러 매니저
     [SerializeField] private IllustHandler backgroundIllust;//스탠딩 일러 매니저
     [SerializeField] private EffectManager effectManager;//효과 매니저
+    [SerializeField] private ChoiceManager choiceManager;
 
     [SerializeField] public TMP_Text nameText;
     [SerializeField] public TMP_Text contentText;
-    
+
+    public bool isSkipAnim = false; //오픈, 클로즈 애니메이션 여부
+    public bool isChoosing;
     public bool isExecuting = false;
     public int index;//다이얼로그 인덱스값
     private Dialouge[] dialougeArr;//다이이얼로그 배열
@@ -60,13 +68,13 @@ public class DialogueManger : MonoBehaviour
 
     private void Start()
     {
-        StartDialogue("/Personal/Chaeho/asset/Dialogue/CSV/Rock1.csv");    
+        StartDialogue("/Personal/Chaeho/asset/Dialogue/CSV/Prologue copy.csv");    
     }
     
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isExecuting)
+        if(Input.GetKeyDown(KeyCode.Space) && isExecuting && !isChoosing)
         {
             ProceedDialogue();
         }
@@ -75,39 +83,86 @@ public class DialogueManger : MonoBehaviour
             StartDialogue(dialogueAdress: "/Src/Dialogue/CSV/Prologue.csv", startIndex: 0);
         }*/
     }
-
     
-    void ShowDialogue(Dialouge dialouge)//현재 위치의 다이얼로그를 화면에 나타냄
+    
+    
+    void ShowDialogue(Dialouge dialogue)//현재 위치의 대화를 화면에 표시
     {
         bool isExistBg = false;
-        nameText.text = dialouge.name;//이름 텍스트 변경
-        if (typingCo != null) { StopCoroutine(typingCo); }//만약 타이핑효과가 재생중이라면
-        if(dialouge.content != "-1") { typingCo = StartCoroutine(TypingEffect(dialouge.content)); }
-        
-        
-        
-        if (dialouge.illustId != -1 && dialouge.illustCategori != -1)//일러스트 정보가 있을 때만 실행
-        { standIllust.illusts[dialouge.illustId, dialouge.illustCategori].SetActive(true); }
-
-        if (dialouge.backgroundId != -1 && dialouge.backgroundCategori != -1) //배경 정보가 있으 때만 실행
-        {
-            backgroundIllust.illusts[dialouge.backgroundId, dialouge.backgroundCategori].gameObject.SetActive(true);
-            isExistBg = true;
+        nameText.text = dialogue.name;//이름 텍스트 변경
+    
+        if (typingCo != null) 
+        { 
+            StopCoroutine(typingCo); // 만약 타이핑 효과가 재생 중이라면 중지
         }
-        
-        if (dialouge.effectId != -1) //이펙트 정보가 있을 때만 실행
+
+        if (dialogue.content != "-1") 
+        { 
+            typingCo = StartCoroutine(TypingEffect(dialogue.content)); // 대화 내용이 있는 경우 타이핑 효과 시작
+        }
+
+        if (dialogue.illustId != -1 && dialogue.illustCategori != -1)//일러스트 정보가 있는 경우
+        { 
+            standIllust.illusts[dialogue.illustId, dialogue.illustCategori].SetActive(true); // 일러스트 활성화
+        }
+
+        if (dialogue.backgroundId != -1 && dialogue.backgroundCategori != -1) //배경 정보가 있는 경우
         {
-            GameObject paramGameObject = default;
-            if (isExistBg && dialouge.effectId==3)
+            isExistBg = true;
+            backgroundIllust.illusts[dialogue.backgroundId, dialogue.backgroundCategori].gameObject.SetActive(true); // 배경 활성화
+        }
+
+        if (dialogue.effectId != -1) //이펙트 정보가 있는 경우
+        {
+            GameObject paramGameObject = null;
+
+            if (isExistBg && dialogue.effectId == 3)
             {
-                print('줌');
-                paramGameObject = backgroundIllust.illusts[dialouge.backgroundId, dialouge.backgroundCategori];
-                effectManager.StartEffect(dialouge.effectId, param:dialouge.effectParam, getGameObject:paramGameObject);
+                paramGameObject = backgroundIllust.illusts[dialogue.backgroundId, dialogue.backgroundCategori];
+                effectManager.StartEffect(dialogue.effectId, param: dialogue.effectParam, getGameObject: paramGameObject); // 배경이 있는 경우에만 특정 이펙트 시작
             }
             else
             {
-                print("노줌");
-                effectManager.StartEffect(dialouge.effectId, param: dialouge.effectParam);
+                effectManager.StartEffect(dialogue.effectId, param: dialogue.effectParam); // 배경이 없거나 특정 이펙트가 아닌 경우 이펙트 시작
+            }
+        }
+
+        if (dialogue.bgmId != -1) //배경 음악 정보가 있는 경우
+        {
+            if (dialogue.bgmId == 0)
+            {
+                //게임매니저(or 사운드매니저).배경음악 종료
+                //ex) gameManager.StopBGM();
+            }
+            else
+            {
+                //게임매니저(or 사운드매니저).배경음악 재생
+                //ex) gameManager.PlayBGM(int형 배경음악 정보);
+            }
+        }
+        
+        if (dialogue.soundId != -1) //효과음 음악 정보가 있는 경우
+        {
+            //게임매니저(or 사운드매니저).효과음악 재생
+            //ex) gameManager.PlaySound(int형 효과음 정보);
+        }
+        
+
+        if (dialogue.eventId != -1)//이벤트 정보가 있는 경우
+        {
+            switch (dialogue.eventId){
+                case 0:
+                    break;
+                case 1://선택지 선택하기
+                    if (dialogue.eventParam != "")
+                    {
+                        print($"{dialogue.eventId} {dialogue.eventParam}" );
+                        choiceManager.StartChoice(dialogue.eventParam);
+                        isChoosing = true;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -120,16 +175,18 @@ public class DialogueManger : MonoBehaviour
         
         for (int i = 0; i < csvData.Count; i++)
         {
-            string name="",
-                content="",
-                illustId="",
-                illustCategori="",
-                backgroundId="",
-                backgroundCategori="",
-                effectId="",
-                effectParam="",
-                soundId="",
-                eventId="";
+            string name = "",
+                content = "",
+                illustId = "",
+                illustCategori = "",
+                backgroundId = "",
+                backgroundCategori = "",
+                effectId = "",
+                effectParam = "",
+                soundId = "",
+                bgmId = "",
+                eventId = "",
+                eventParam = "";
                 
             name = csvData[i]["name"].ToString();
             content = csvData[i]["content"].ToString();
@@ -140,15 +197,16 @@ public class DialogueManger : MonoBehaviour
             effectId = csvData[i]["effectId"].ToString();
             effectParam = csvData[i]["effectParam"].ToString();
             soundId = csvData[i]["soundId"].ToString();
+            bgmId = csvData[i]["bgmId"].ToString();
             eventId = csvData[i]["eventId"].ToString();
-                
+            eventParam = csvData[i]["eventParam"].ToString();
 
             Dialouge generateDlg = new Dialouge(name: name, content: content,
                 illustId: illustId, illustCategori: illustCategori,
                 backgroundId: backgroundId, backgroundCategori: backgroundCategori,
                 effectId: effectId, effectParam: effectParam,
-                soundId: soundId,
-                eventId: eventId
+                soundId: soundId, bgmId: bgmId,
+                eventId: eventId, eventParam: eventParam
             );
             dialougeArr[i] = generateDlg;
         }
@@ -156,7 +214,6 @@ public class DialogueManger : MonoBehaviour
     
     public void StartDialogue(string dialogueAdress="", int startIndex=0)
     {
-        
         if(!isExecuting)
         {
             if (dialogueAdress != "")
@@ -164,14 +221,16 @@ public class DialogueManger : MonoBehaviour
                 print("다이얼로그 실행");
                 currentAdress = dialogueAdress.Split("/")[^1].Split(".")[0];
                 isExecuting = true;
-                for (int i = 0; diaolgueObject.Length > i; i++)//다이얼로그 오브젝트 활성화
-                {
-                    diaolgueObject[i].SetActive(true);
-                }
                 GenerateDialogue(dialogueAdress);
                 //다이얼로그 파싱
                 index = startIndex;
                 effectManager.InitEffect();
+                choiceManager.InitChoice();
+                for(int i = 0; diaolgueObject.Length > i; i++)//다이얼로그 오브젝트 활성화
+                {
+                    diaolgueObject[i].SetActive(true);
+                }
+
                 StartCoroutine(OpenDialogueBox());
             }
             else
@@ -187,16 +246,14 @@ public class DialogueManger : MonoBehaviour
         
     }
 
-    void CloseDialogue()
+    public void CloseDialogue()
     {
-        Debug.Log($"다이얼로그 종료");
-        isExecuting = false;
         for (int i = 0; diaolgueObject.Length > i; i++)
         {
             diaolgueObject[i].SetActive(false);
         }
-        
-        
+        Debug.Log($"다이얼로그 종료");
+        isExecuting = false;
     }
 
     void ProceedDialogue()
@@ -211,31 +268,30 @@ public class DialogueManger : MonoBehaviour
         }
         else//보통의 경우
         {
+            effectManager.InitEffect();
+            if (index >= 0)//이전의 다이얼로그의 일러스트를 비활성화함
+            {
+                if (dialougeArr[index].illustId != -1 && dialougeArr[index].illustCategori != -1)
+                {
+                    standIllust.illusts[dialougeArr[index].illustId, dialougeArr[index].illustCategori]
+                        .SetActive(false);
+                }
+
+                if (dialougeArr[index].backgroundId != -1 && dialougeArr[index].backgroundCategori != -1)
+                {
+                    backgroundIllust.illusts[dialougeArr[index].backgroundId, dialougeArr[index].backgroundCategori]
+                        .SetActive(false);
+                }
+            }
+            
             if(index<dialougeArr.Length-1)//실행
             {
                 index++;
-                
                 ShowDialogue(dialougeArr[index]);
             }
             else//종료
             {
                 StartCoroutine(CloseDialogueBox());
-            }
-
-            if (index > 0)//이전의 다이얼로그의 일러스트를 비활성화함
-            {
-                try
-                {
-                    standIllust.illusts[dialougeArr[index - 1].illustId, dialougeArr[index - 1].illustCategori]
-                        .SetActive(false);
-                }
-                catch { }
-                try
-                {
-                    backgroundIllust.illusts[dialougeArr[index - 1].backgroundId, dialougeArr[index - 1].backgroundCategori]
-                        .SetActive(false);
-                }
-                catch { }
             }
         }
     }
@@ -251,47 +307,54 @@ public class DialogueManger : MonoBehaviour
 
     IEnumerator OpenDialogueBox()
     {
-        RectTransform rectTransform = diaolgueObject[2].GetComponent<RectTransform>();
 
-        Vector3 originScale = new Vector3(1,1,1);
-        float nowScaleY = 0;
-        rectTransform.localScale =
-            new Vector3(originScale.x , 0, originScale.z);                                                      
-                
-        while (nowScaleY < originScale.y)
+        if(!isSkipAnim)
         {
-            rectTransform.localScale =
-                new Vector3(originScale.x, nowScaleY, originScale.z);
+            RectTransform rectTransform = diaolgueObject[2].GetComponent<RectTransform>();
 
-            nowScaleY += 10 * Time.deltaTime;
-            yield return null;
+            Vector3 originScale = new Vector3(1, 1, 1);
+            float nowScaleY = 0;
+            rectTransform.localScale =
+                new Vector3(originScale.x, 0, originScale.z);
+
+            while (nowScaleY < originScale.y)
+            {
+                rectTransform.localScale =
+                    new Vector3(originScale.x, nowScaleY, originScale.z);
+
+                nowScaleY += 10 * Time.deltaTime;
+                yield return null;
+            }
+
+            rectTransform.localScale =
+                new Vector3(originScale.x, originScale.y, originScale.z);
         }
-        
-        rectTransform.localScale =
-            new Vector3(originScale.x, originScale.y, originScale.z);
         
         ShowDialogue(dialougeArr[index]);
     }
     
     IEnumerator CloseDialogueBox()
     {
-        RectTransform rectTransform = diaolgueObject[2].GetComponent<RectTransform>();
-
-        Vector3 originScale = new Vector3(1, 1, 1);
-
-        float nowScaleY = originScale.y;
-                
-        while (0 < nowScaleY)
+        if(!isSkipAnim)
         {
-            rectTransform.localScale =
-                new Vector3(originScale.x, nowScaleY, originScale.z);
+            RectTransform rectTransform = diaolgueObject[2].GetComponent<RectTransform>();
 
-            nowScaleY -= 10 * Time.deltaTime;
-            yield return null;
+            Vector3 originScale = new Vector3(1, 1, 1);
+
+            float nowScaleY = originScale.y;
+
+            while (0 < nowScaleY)
+            {
+                rectTransform.localScale =
+                    new Vector3(originScale.x, nowScaleY, originScale.z);
+
+                nowScaleY -= 10 * Time.deltaTime;
+                yield return null;
+            }
+
+            rectTransform.localScale =
+                new Vector3(originScale.x, 0, originScale.z);
         }
-        
-        rectTransform.localScale =
-            new Vector3(originScale.x, 0, originScale.z);
         
         CloseDialogue();
     }
