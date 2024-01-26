@@ -36,7 +36,7 @@
     justify-content: center;
     align-items: center;
     color: rgba(210, 210, 210, 0);
-    -unity-background-image-tint-color: rgba(255, 61, 220, 255);
+    -unity-background-image-tint-color: rgb(255, 61, 220);
 }
 
 .Button_Unclick {
@@ -91,7 +91,7 @@
 }
 
 .Map_Button {
-    width: 18%;
+    width: 15%;
     height: 8%;
     background-color: rgba(0, 0, 0, 0);
     color: rgba(210, 210, 210, 0);
@@ -99,4 +99,5 @@
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
+    padding-right: 5px;
 }
