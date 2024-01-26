@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    int week = 1;
-    int hp = 100;
+    public int week = 1;
+    public int hp = 100;
 
     int[] heroines = new int[4]; //0:RG, 1:Zero, 2:Wop, 3:Ed
 
     int window = 0;
+
+    public GameObject UI_Container;//UI갖고있는 게임오브젝트
+    Upper_Bar upper_Bar;
 
 
     public bool autoSkip = false;
@@ -35,6 +38,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         
+
+
+        //UI 요소 가져오기
+        upper_Bar=UI_Container.GetComponent<Upper_Bar>();
     }
 
 
@@ -71,6 +78,11 @@ public class GameManager : MonoBehaviour
 
         hp += value;
         if (hp >= 100) { hp = 100; }
+
+
+        //UI 변환
+        upper_Bar.HealthChange();
+
         return 0;
     }
 
@@ -81,20 +93,20 @@ public class GameManager : MonoBehaviour
         else if (heroines[heroineID] > 100 ) { heroines[heroineID] = 100; }
     }
 
-    public void Home()
-    {
+   // public void Home()
+   // {
         
-    }
-    public void Map()
-    {
+    //}
+   // public void Map()
+    //{
         
-    }
-    public void Setting()
-    {
+   // }
+   // public void Setting()
+   // {
         
-    }
-    public void Profile()
-    {
+   // }
+    //public void Profile()
+    //{
         
-    }
+    //}
 }
