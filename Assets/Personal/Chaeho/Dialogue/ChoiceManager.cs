@@ -84,7 +84,7 @@ public class ChoiceManager : MonoBehaviour
 
         string choices, c1, c2, c3, c1to, c2to, c3to;
 
-        choices = csvData[0]["choices"].ToString();
+            choices = csvData[0]["choices"].ToString();
         c1 = csvData[0]["c1"].ToString();
         c2 = csvData[0]["c2"].ToString();
         c3 = csvData[0]["c3"].ToString();
