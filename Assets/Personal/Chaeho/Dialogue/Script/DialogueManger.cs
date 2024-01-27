@@ -68,7 +68,8 @@ public class DialogueManger : MonoBehaviour
 
     private void Start()
     {
-        StartDialogue("/Personal/Chaeho/asset/Dialogue/CSV/Fin/Prolouge/dlg0.csv");    
+        //Week1/loc1/dlg0.csv
+        StartDialogue("DialogueCSV/Week1/loc1/dlg0.csv");    
     }
     
     // Update is called once per frame
@@ -212,9 +213,9 @@ public class DialogueManger : MonoBehaviour
         }
     }
     
-    public void StartDialogue(string dialogueAdress="", int startIndex=0)
+    public void StartDialogue(string dialogueAdress="", int startIndex=0, bool isKeeping = false)
     {
-        if(!isExecuting)
+        if(!isExecuting || isKeeping)
         {
             if (dialogueAdress != "")
             {
@@ -226,7 +227,7 @@ public class DialogueManger : MonoBehaviour
                 index = startIndex;
                 effectManager.InitEffect();
                 choiceManager.InitChoice();
-                for(int i = 0; diaolgueObject.Length > i; i++)//다이얼로그 오브젝트 활성화
+                for(int i = 0; diaolgueObject.Length > i && !isKeeping; i++)//다이얼로그 오브젝트 활성화
                 {
                     diaolgueObject[i].SetActive(true);
                 }
@@ -255,8 +256,8 @@ public class DialogueManger : MonoBehaviour
         Debug.Log($"다이얼로그 종료");
         isExecuting = false;
     }
-
-    public void ProceedDialogue()
+    
+    public void ProceedDialogue(bool isKeeping = false)
     {
         if (effectManager.effectCo != null)//이펙트가 실행중이라면
         {
@@ -291,7 +292,7 @@ public class DialogueManger : MonoBehaviour
             }
             else//종료
             {
-                StartCoroutine(CloseDialogueBox());
+                if(!isKeeping) StartCoroutine(CloseDialogueBox());
             }
         }
     }

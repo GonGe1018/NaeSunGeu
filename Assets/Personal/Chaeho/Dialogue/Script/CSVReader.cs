@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using Application = UnityEngine.Device.Application;
 
 public class CSVReader
 {
@@ -13,7 +14,9 @@ public class CSVReader
         var list = new List<Dictionary<string, object>>();
         //TextAsset data = Resources.Load(file) as TextAsset;
 
-        StreamReader SR = new StreamReader("./Assets"+file);
+        //프로젝트 내부 streamingAssets 폴더 내부 경로만 읽을 수 있습니다.
+        string path = Application.streamingAssetsPath + '/' + file;
+        StreamReader SR = new StreamReader(path);
         string result = "";
         result = SR.ReadToEnd();
         SR.Close();

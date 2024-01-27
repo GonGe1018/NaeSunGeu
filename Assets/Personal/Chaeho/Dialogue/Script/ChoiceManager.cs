@@ -28,6 +28,7 @@ public class Choice
 public class ChoiceManager : MonoBehaviour
 {
     [SerializeField] private DialogueManger dialogueManger;
+    [SerializeField] private ChoiceHandler choiceHandler;
     
     [SerializeField] private GameObject[] choiceObject;
     [SerializeField] private GameObject[] buttonObject;
@@ -133,7 +134,7 @@ public class ChoiceManager : MonoBehaviour
     public void ClickBtn1()
     {
         ExitChoice();
-        dialogueManger.ProceedDialogue();
+        choiceHandler.Excute(currentChoice.c1to);
         print("선택지1 클릭");
         //게임 매니저에 전달
     }
@@ -141,7 +142,7 @@ public class ChoiceManager : MonoBehaviour
     public void ClickBtn2()
     {
         ExitChoice();
-        dialogueManger.ProceedDialogue();
+        choiceHandler.Excute(currentChoice.c2to);
         print("선택지2 클릭");
         //게임 매니저에 전달
     }
@@ -149,7 +150,7 @@ public class ChoiceManager : MonoBehaviour
     public void ClickBtn3()
     {
         ExitChoice();
-        dialogueManger.ProceedDialogue();
+        choiceHandler.Excute(currentChoice.c3to);
         print("선택지3 클릭");
         //게임 매니저에 전달
     }

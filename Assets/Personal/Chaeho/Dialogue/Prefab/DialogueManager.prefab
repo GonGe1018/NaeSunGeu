@@ -888,13 +888,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6474344626351243659}
   - component: {fileID: 6474344626351243658}
+  - component: {fileID: 2707260148224371773}
   m_Layer: 5
   m_Name: ChoiceManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6474344626351243659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -930,6 +931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManger: {fileID: 7636787809776896881}
+  choiceHandler: {fileID: 2707260148224371773}
   choiceObject:
   - {fileID: 6474344627940425232}
   - {fileID: 6474344627595478790}
@@ -941,6 +943,20 @@ MonoBehaviour:
   - {fileID: 6474344627823031346}
   - {fileID: 6474344626374266632}
   - {fileID: 6474344626730046378}
+--- !u!114 &2707260148224371773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6474344626351243652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b431a5e956f84a5bb214e06cef7d8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  dialogueManger: {fileID: 7636787809776896881}
 --- !u!1 &6474344626374266634
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,11 +15,11 @@ public class EffectManager : MonoBehaviour
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
-    public void StartEffect(int effectId, float param = default, GameObject getGameObject = default)
+    public void StartEffect(int effectId, float param = -1, GameObject getGameObject = default)
     {
         if (param == -1)
         {
-            print($"{effectId}¹ø ÀÌÆåÆ®ÀÇ ÆÄ¶ó¹ÌÅÍ°¡ ¾øÀ½");
+            print($"{effectId}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
         switch (effectId)
         {
@@ -52,7 +52,7 @@ public class EffectManager : MonoBehaviour
     
     IEnumerator FadeIn(float time)
     {
-        if (time == default) time = 3f;
+        if (time == -1) time = 3f;
         fadeImg.color = new Color(0, 0, 0, 1);
         while (fadeImg.color.a > 0.0f)
         {
@@ -64,7 +64,7 @@ public class EffectManager : MonoBehaviour
     
     IEnumerator FadeOut(float time)
     {
-        if (time == default) time = 3f;
+        if (time == -1) time = 3f;
         fadeImg.color = new Color(0, 0, 0, 0);
         while (fadeImg.color.a <= 1.0f)
         {
@@ -76,7 +76,6 @@ public class EffectManager : MonoBehaviour
 
     IEnumerator ZoomBackground(float scale, GameObject getGameObject)
     {
-        
         if (getGameObject == null ||getGameObject.GetComponent<RectTransform>() == null)
         {
             Debug.LogError("error");
