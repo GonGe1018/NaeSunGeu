@@ -13,6 +13,9 @@ public class Custom_Radio : MonoBehaviour
 
     private Button[] StoryB=new Button[2], TouchB = new Button[2];
 
+    [SerializeField] SoundManager soundManager;
+    [SerializeField] Custom_Slider customSlider;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -124,6 +127,8 @@ public class Custom_Radio : MonoBehaviour
 
     private void ExitSettings(ClickEvent evt) 
     {
+        soundManager.BGMvolume((customSlider.BgmValue/100f));
+
         gameObject.SetActive(false);
     }
 

@@ -4,6 +4,33 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    /*히로인 별 호감도*/ 
+    private int RG = 0, ZR=0 , IW=0,ED=0;
+
+
+    public int getRG
+    {
+        get { return RG; } set { RG = value; }
+    }
+    public int getZR
+    {
+        get { return ZR; }
+        set { ZR = value; }
+    }
+    public int getIW
+    {
+        get { return IW; }
+        set { IW = value; }
+    }
+    public int getED
+    {
+        get { return ED; }
+        set { ED= value; }
+    }
+    //-------------------
+
+
+
     public int week = 1;
     public int hp = 100;
 
@@ -71,6 +98,9 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+
+
 
     int SetHP(int value) //체력 증감 함수
     {

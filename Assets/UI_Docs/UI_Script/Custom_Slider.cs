@@ -11,8 +11,21 @@ public class Custom_Slider : MonoBehaviour
     private VisualElement m_Root;
     //root
 
-    private SliderInt Bgm_slider,Effct_Slider;
+    private SliderInt bgmSlider, effctSlider;
 
+
+    [SerializeField] SoundManager soundManager;
+
+    public int BgmValue
+    {
+        get {return bgmSlider.value; }
+        set { bgmSlider.value = value;}
+    }
+    public int EffectValue
+    {
+    get { return effctSlider.value; }
+        set { effctSlider.value = value;}
+    }
     private VisualElement Bgm_Dragger,Effct_Dragger;
 
     private VisualElement Bgm_Bar, Bgm_Head,Effct_Bar,Effct_Head;
@@ -22,45 +35,49 @@ public class Custom_Slider : MonoBehaviour
     {
         //get references to necesarra
         m_Root = GetComponent<UIDocument>().rootVisualElement;
-        Bgm_slider = m_Root.Q<SliderInt>("Bgm_Slider");
-        Effct_Slider=m_Root.Q<SliderInt>("Effct_Slider");
-        if(Bgm_slider==null)
+        bgmSlider = m_Root.Q<SliderInt>("Bgm_Slider");
+        effctSlider=m_Root.Q<SliderInt>("Effct_Slider");
+        if(bgmSlider==null)
         {
             print("Bgm슬라이더없음");
         }
-        else if (Effct_Slider==null)
+        else if (effctSlider==null)
         {
             print("Efct슬라이더없음");
         }
 
-        Bgm_Dragger = Bgm_slider.Q<VisualElement>("unity-dragger");
-        Effct_Dragger = Effct_Slider.Q<VisualElement>("unity-dragger");
+        Bgm_Dragger = bgmSlider.Q<VisualElement>("unity-dragger");
+        Effct_Dragger = effctSlider.Q<VisualElement>("unity-dragger");
 
-        if (Bgm_slider == null)
+        if (bgmSlider == null)
         {
             print("Bgm드래거없음");
         }
-        else if (Effct_Slider == null)
+        else if (effctSlider == null)
         {
             print("Efct드래거없음");
         }
 
 
-        Debug.Log(Bgm_slider);
+        Debug.Log(bgmSlider);
         AddElements();
 
-        Bgm_slider.RegisterCallback<ChangeEvent<int>>(OnValueChange_Int);
-        Effct_Slider.RegisterCallback<ChangeEvent<int>>(OnValueChange_Int);
+        bgmSlider.RegisterCallback<ChangeEvent<int>>(OnValueChange_Int);
+        effctSlider.RegisterCallback<ChangeEvent<int>>(OnValueChange_Int);
 
-
+        bgmSlider.value = ((int)(soundManager.bgmsound * 100f));
+        effctSlider.value = ((int)(soundManager.effectsound * 100f));
     }
 
 
     
     private void OnValueChange_Int(ChangeEvent<int> evt)
     {
-      //  m_Bar.style.width = m_Slider.value;
-     //   Debug.Log(value);
+        //  m_Bar.style.width = m_Slider.value;
+        //   Debug.Log(value);
+
+        soundManager.bgmsound = bgmSlider.value/100f;
+        soundManager.effectsound = effctSlider.value/100f;
     }
 
     void AddElements()
@@ -79,13 +96,5 @@ public class Custom_Slider : MonoBehaviour
         Effct_Bar.AddToClassList("Bar");
     }
 
- 
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

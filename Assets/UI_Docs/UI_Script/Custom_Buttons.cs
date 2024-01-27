@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,7 +9,7 @@ public class Custom_Buttons : MonoBehaviour
 {
     private VisualElement root;
     public Button[] Setting_buttons = new Button[5];
-    public GameObject ForMap,ForSet,ForProf; Map Mapinst; Prof Profinst;
+    public GameObject ForMap,ForSet,ForProf, ForMapBg; Map Mapinst; Prof Profinst; MapBg mapBg;
     
 
 
@@ -26,6 +27,7 @@ public class Custom_Buttons : MonoBehaviour
         
          Mapinst= ForMap.GetComponent<Map>();
         Profinst=ForProf.GetComponent<Prof>();
+        mapBg=ForMapBg.GetComponent<MapBg>();
         for (int i = 0; i < 5; i++)
         {
             // Setting_buttons[i].RegisterCallback<ClickEvent>(OnSettingButtonClick);
@@ -68,10 +70,19 @@ public class Custom_Buttons : MonoBehaviour
                 {
                     clickedButton.RemoveFromClassList("Button_Unclick");
                     imguiContainer = Setting_buttons[i].Q<IMGUIContainer>();
-                    imguiContainer.style.unityBackgroundImageTintColor = new Color(1f, 0.384f, 0.445f, 0.400f);
-                    if (buttonName=="Map")
-                            Mapinst.MapOut();
-                    else Mapinst.MapIn();
+                    imguiContainer.style.unityBackgroundImageTintColor = new Color(1f, 0f, 1f, 0.6f);
+                    if (buttonName == "Map")
+                    {
+                        Mapinst.MapOut();
+                        mapBg.MapOut();
+                    }
+
+                    else
+                    {
+                        Mapinst.MapIn();
+                        mapBg.MapIn();
+                    }
+
 
                     if(buttonName=="Settings")
                         ForSet.SetActive(true);
