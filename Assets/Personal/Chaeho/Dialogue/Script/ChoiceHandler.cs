@@ -17,8 +17,28 @@ public class ChoiceHandler : MonoBehaviour
         int weekNum = int.Parse(splitCmd[0].Substring(1)), 
             locNum = int.Parse(splitCmd[1]), fileNum = int.Parse(splitCmd[2]), 
             choiceNum = int.Parse(splitCmd[3]);
-
-        if (weekNum == 1)
+        if (weekNum == 0)
+        {
+            if (fileNum == 0)
+            {
+                if (choiceNum == 1)
+                {
+                    //왑짱이 눈치 주는데 계속 제로짱과 대화
+                    //왑짱 호감도 다운, 제로짱 호감도 업
+                    dialogueManger.ProceedDialogue(isKeeping: true);
+                    dialogueManger.StartDialogue("DialogueCSV/Prologue/dlg0-1.csv", isKeeping: true);
+                }
+                else if (choiceNum == 2)
+                {
+                    //왑짱 호감도 업
+                    //왑짱이 눈치 줘서 제로짱과 대화 중단
+                    dialogueManger.ProceedDialogue(isKeeping: true);
+                    dialogueManger.StartDialogue("DialogueCSV/Prologue/dlg0-2.csv", isKeeping: true);
+                }
+            }
+            
+        }
+        else if (weekNum == 1)
         {
             if (locNum == 1)
             {
@@ -26,13 +46,37 @@ public class ChoiceHandler : MonoBehaviour
                 {
                     if (choiceNum == 1)
                     {
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0-1.csv",isKeeping:true);
+                        //복잡한 상황에서 왑짱의 도움을 받는
+                        //왑짱 호감도 업
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0-1.csv", isKeeping: true);
                     }
                     else if (choiceNum == 2)
                     {
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0-2.csv",isKeeping:true);
+                        //복잡한 상황에서 왑짱의 도움을 거절
+                        //왑짱 호감도 다운
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0-2.csv", isKeeping: true);
+                    }
+                }
+            }
+            else if (locNum == 4)
+            {
+                if (fileNum == 0)
+                {
+                    if (choiceNum == 1)
+                    {
+                        //애드짱이 주는 맛스타를 먹음
+                        //애드짱 호감도 많이 업
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc4/dlg0-1.csv", isKeeping: true);
+                    }
+                    else if (choiceNum == 2)
+                    {  
+                        //애드짱이 사주는 매점을 거부함
+                        //애드짱 호감도 조금 업
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc4/dlg0-2.csv", isKeeping: true);
                     }
                 }
             }
@@ -42,17 +86,23 @@ public class ChoiceHandler : MonoBehaviour
                 {
                     if (choiceNum == 1)
                     {
+                        //알지짱 노래 엿듣다가 도망
+                        //알지짱 호감도 업
                         dialogueManger.ProceedDialogue(isKeeping:true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-1.csv",isKeeping:true);
                     }
                     else if (choiceNum == 2)
                     {
+                        //알지짱 노래 엿듣다가 바로 붙잡힘
+                        //호감도 업
                         dialogueManger.ProceedDialogue(isKeeping:true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-2.csv",isKeeping:true);
                     }
                 }
                 else if(fileNum == 1)
                 {
+                    //알지짱 노래 엿듣다가 들켜서 도망가다가 잡힘
+                    //호감도 업
                     dialogueManger.ProceedDialogue(isKeeping:true);
                     dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-2.csv",isKeeping:true);
                 }
