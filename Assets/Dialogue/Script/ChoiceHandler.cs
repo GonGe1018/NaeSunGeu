@@ -157,11 +157,15 @@ public class ChoiceHandler : MonoBehaviour
                     {
                         //알지짱 탈룰라 만들기
                         //호감도 업
+                        dialogueManger.ProceedDialogue(isKeeping:true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg1-1.csv",isKeeping:true);
                     }
                     else if (choiceNum == 2)
                     {
                         //자기 자신을 틀딱으로 만들기
                         //호감도 변동 x
+                        dialogueManger.ProceedDialogue(isKeeping:true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg1-2.csv",isKeeping:true);
                     }
                 }
                 
