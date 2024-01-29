@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    /*히로인 별 호감도*/ 
-    private int RG = 0, ZR=0 , IW=0,ED=0;
+    /*히로인 별 호감도*/
+    private int RG = 0, ZR = 0, IW = 0, ED = 0;
 
 
     public int getRG
     {
-        get { return RG; } set { RG = value; }
+        get { return RG; }
+        set { RG = value; }
     }
     public int getZR
     {
@@ -25,7 +24,7 @@ public class GameManager : MonoBehaviour
     public int getED
     {
         get { return ED; }
-        set { ED= value; }
+        set { ED = value; }
     }
     //-------------------
 
@@ -64,17 +63,17 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+
 
 
         //UI 요소 가져오기
-        upper_Bar=UI_Container.GetComponent<Upper_Bar>();
+        upper_Bar = UI_Container.GetComponent<Upper_Bar>();
     }
 
 
     void Update()
     {
-        
+
     }
 
     public void Choosen(string str) //선택지에 따른 값 수정 (회의 후 수정예정)
@@ -83,7 +82,7 @@ public class GameManager : MonoBehaviour
 
         int heroineID,
             love;
-        
+
         if (datas[0] != string.Empty) //히로인 ID값 가져오기
         {
             heroineID = int.Parse(datas[0]);
@@ -116,27 +115,44 @@ public class GameManager : MonoBehaviour
         return 0;
     }
 
-    void SetLove(int heroineID, int value) //호감도 증감 함수
+
+
+    public void setLove(string ID, int val)
     {
-        heroines[heroineID] += value;
-        if (heroines[heroineID] < 0) { heroines[heroineID] = 0; }
-        else if (heroines[heroineID] > 100 ) { heroines[heroineID] = 100; }
+        //RG1 ZR2 IW3 ED4
+        switch (ID)
+        {
+            case "RG":
+                RG += val;
+
+                break; 
+            case "ZR":
+                ZR += val;
+                break;
+            case "IW":
+                IW += val;
+
+                break;
+            case "ED":
+                ED += val;
+                break;
+        }
     }
 
-   // public void Home()
-   // {
-        
+    // public void Home()
+    // {
+
     //}
-   // public void Map()
+    // public void Map()
     //{
-        
-   // }
-   // public void Setting()
-   // {
-        
-   // }
+
+    // }
+    // public void Setting()
+    // {
+
+    // }
     //public void Profile()
     //{
-        
+
     //}
 }

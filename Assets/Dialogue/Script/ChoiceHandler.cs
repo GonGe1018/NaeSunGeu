@@ -1,21 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+
 
 public class ChoiceHandler : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private DialogueManger dialogueManger;
-    
+
     //주의!! Exute 함수는 게임 특성상 다양한 분기점이 존재함이 이유로서, 매우 더럽습니다. 꼼꼼히 보고 수정하시기 바랍니다.
     //극한의 하드코딩 결과물입니다.
+
+
     public void Excute(string cmd)
     {
         print(cmd);
         string[] splitCmd = cmd.Split('_');
-        int weekNum = int.Parse(splitCmd[0].Substring(1)), 
-            locNum = int.Parse(splitCmd[1]), fileNum = int.Parse(splitCmd[2]), 
+        int weekNum = int.Parse(splitCmd[0].Substring(1)),
+            locNum = int.Parse(splitCmd[1]), fileNum = int.Parse(splitCmd[2]),
             choiceNum = int.Parse(splitCmd[3]);
         if (weekNum == 0)
         {
@@ -27,6 +28,10 @@ public class ChoiceHandler : MonoBehaviour
                     //왑짱 호감도 다운, 제로짱 호감도 업
                     dialogueManger.ProceedDialogue(isKeeping: true);
                     dialogueManger.StartDialogue("DialogueCSV/Prologue/dlg0-1.csv", isKeeping: true);
+
+                    //호감도
+                    gameManager.setLove("ZR", 5);
+                    gameManager.setLove("IW", -5);
                 }
                 else if (choiceNum == 2)
                 {
@@ -34,9 +39,10 @@ public class ChoiceHandler : MonoBehaviour
                     //왑짱이 눈치 줘서 제로짱과 대화 중단
                     dialogueManger.ProceedDialogue(isKeeping: true);
                     dialogueManger.StartDialogue("DialogueCSV/Prologue/dlg0-2.csv", isKeeping: true);
+                    gameManager.setLove("IW", 5);
                 }
             }
-            
+
         }
         else if (weekNum == 1)
         {
@@ -50,6 +56,9 @@ public class ChoiceHandler : MonoBehaviour
                         //왑짱 호감도 업
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0-1.csv", isKeeping: true);
+
+                        gameManager.setLove("IW", 5);
+
                     }
                     else if (choiceNum == 2)
                     {
@@ -57,6 +66,8 @@ public class ChoiceHandler : MonoBehaviour
                         //왑짱 호감도 다운
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0-2.csv", isKeeping: true);
+
+                        gameManager.setLove("IW", -5);
                     }
                 }
             }
@@ -70,13 +81,17 @@ public class ChoiceHandler : MonoBehaviour
                         //애드짱 호감도 많이 업
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc4/dlg0-1.csv", isKeeping: true);
+
+                        gameManager.setLove("ED", 5);
                     }
                     else if (choiceNum == 2)
-                    {  
+                    {
                         //애드짱이 사주는 매점을 거부함
                         //애드짱 호감도 조금 업
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc4/dlg0-2.csv", isKeeping: true);
+
+                        gameManager.setLove("ED", 2);
                     }
                 }
             }
@@ -88,26 +103,32 @@ public class ChoiceHandler : MonoBehaviour
                     {
                         //알지짱 노래 엿듣다가 도망
                         //알지짱 호감도 업
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-1.csv",isKeeping:true);
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-1.csv", isKeeping: true);
+
+                        gameManager.setLove("RG", 5);
                     }
                     else if (choiceNum == 2)
                     {
                         //알지짱 노래 엿듣다가 바로 붙잡힘
                         //호감도 업
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-2.csv",isKeeping:true);
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-2.csv", isKeeping: true);
+
+                        gameManager.setLove("RG", 5);
                     }
                 }
-                else if(fileNum == 1)
+                else if (fileNum == 1)
                 {
                     //알지짱 노래 엿듣다가 들켜서 도망가다가 잡힘
                     //호감도 업
-                    dialogueManger.ProceedDialogue(isKeeping:true);
-                    dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-2.csv",isKeeping:true);
+                    dialogueManger.ProceedDialogue(isKeeping: true);
+                    dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-2.csv", isKeeping: true);
+
+                    gameManager.setLove("RG", 5);
                 }
             }
-            
+
         }
         else if (weekNum == 2)
         {
@@ -119,18 +140,22 @@ public class ChoiceHandler : MonoBehaviour
                     {
                         //레오를 쓰담는 경우
                         //애드짱 호감도 업
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0-1.csv",isKeeping:true);
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0-1.csv", isKeeping: true);
+
+                        gameManager.setLove("ED", 5);
                     }
                     else if (choiceNum == 2)
                     {
                         //애드짱을 쓰담는 경우
                         //철컹철컹 엔딩(대사파일 evenId 2로 수정 후 엔딩 정보 입력)
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0-2.csv",isKeeping:true);
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0-2.csv", isKeeping: true);
+
+                        //gameManager.setLove("ED", 5);
                     }
                 }
-                
+
             }
             else if (locNum == 2)
             {
@@ -140,15 +165,19 @@ public class ChoiceHandler : MonoBehaviour
                     {
                         //알지짱에게 틀딱 애니를 물어본 경우
                         //호감도 다운
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0-1.csv",isKeeping:true);
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0-1.csv", isKeeping: true);
+
+                        gameManager.setLove("RG", -5);
                     }
                     else if (choiceNum == 3)
                     {
                         //알지짱에게 최신 애니를 물어본 경우
                         //호감도 업
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0-2.csv",isKeeping:true);
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0-2.csv", isKeeping: true);
+
+                        gameManager.setLove("RG", 5);
                     }
                 }
                 else if (fileNum == 1)
@@ -157,23 +186,25 @@ public class ChoiceHandler : MonoBehaviour
                     {
                         //알지짱 탈룰라 만들기
                         //호감도 업
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg1-1.csv",isKeeping:true);
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg1-1.csv", isKeeping: true);
+
+                        gameManager.setLove("RG", 5);
                     }
                     else if (choiceNum == 2)
                     {
                         //자기 자신을 틀딱으로 만들기
                         //호감도 변동 x
-                        dialogueManger.ProceedDialogue(isKeeping:true);
-                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg1-2.csv",isKeeping:true);
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg1-2.csv", isKeeping: true);
                     }
                 }
-                
+
             }
-            
-            
+
+
         }
-        
+
     }
-    
+
 }
