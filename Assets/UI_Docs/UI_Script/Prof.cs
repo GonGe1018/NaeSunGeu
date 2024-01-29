@@ -20,12 +20,12 @@ public class Prof : MonoBehaviour
         cha[2] = root.Q<VisualElement>("IW");
         cha[3] = root.Q<VisualElement>("ED");
 
-        //ÀÌÁ¦·Î, ÃÖÀÌ¿Ò, Á¤¿¡µå
+        //ì´ì œë¡œ, ìµœì´ì™‘, ì •ì—ë“œ
 
-        cha[0].Q<TextElement>("Name").text = "±è¾ËÁö";
-        cha[1].Q<TextElement>("Name").text = "ÀÌÁ¦·Î";
-        cha[2].Q<TextElement>("Name").text = "ÃÖÀÌ¿Ò";
-        cha[3].Q<TextElement>("Name").text = "Á¤¿¡µå";
+        cha[0].Q<TextElement>("Name").text = "ê¹€ì•Œì§€";
+        cha[1].Q<TextElement>("Name").text = "ì´ì œë¡œ";
+        cha[2].Q<TextElement>("Name").text = "ìµœì´ì™‘";
+        cha[3].Q<TextElement>("Name").text = "ì •ì—ë“œ";
 
         cha[0].Q<TextElement>("Number").text = gameManager.getRG.ToString()+"%";
         cha[1].Q<TextElement>("Number").text = gameManager.getZR.ToString()+"%";
