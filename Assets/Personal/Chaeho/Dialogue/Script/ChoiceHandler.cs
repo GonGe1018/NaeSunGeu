@@ -132,6 +132,41 @@ public class ChoiceHandler : MonoBehaviour
                 }
                 
             }
+            else if (locNum == 2)
+            {
+                if (fileNum == 0)
+                {
+                    if (choiceNum == 1 || choiceNum == 2)
+                    {
+                        //알지짱에게 틀딱 애니를 물어본 경우
+                        //호감도 다운
+                        dialogueManger.ProceedDialogue(isKeeping:true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0-1.csv",isKeeping:true);
+                    }
+                    else if (choiceNum == 3)
+                    {
+                        //알지짱에게 최신 애니를 물어본 경우
+                        //호감도 업
+                        dialogueManger.ProceedDialogue(isKeeping:true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0-2.csv",isKeeping:true);
+                    }
+                }
+                else if (fileNum == 1)
+                {
+                    if (choiceNum == 1)
+                    {
+                        //알지짱 탈룰라 만들기
+                        //호감도 업
+                    }
+                    else if (choiceNum == 2)
+                    {
+                        //자기 자신을 틀딱으로 만들기
+                        //호감도 변동 x
+                    }
+                }
+                
+            }
+            
             
         }
         
