@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     int[] heroines = new int[4]; //0:RG, 1:Zero, 2:Wop, 3:Ed
 
-    int window = 0;
+    //int window = 0;
 
     public GameObject UI_Container;//UI갖고있는 게임오브젝트
     Upper_Bar upper_Bar;
