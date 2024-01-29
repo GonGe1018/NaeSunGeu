@@ -109,6 +109,31 @@ public class ChoiceHandler : MonoBehaviour
             }
             
         }
+        else if (weekNum == 2)
+        {
+            if (locNum == 1)
+            {
+                if (fileNum == 0)
+                {
+                    if (choiceNum == 1)
+                    {
+                        //레오를 쓰담는 경우
+                        //애드짱 호감도 업
+                        dialogueManger.ProceedDialogue(isKeeping:true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0-1.csv",isKeeping:true);
+                    }
+                    else if (choiceNum == 2)
+                    {
+                        //애드짱을 쓰담는 경우
+                        //철컹철컹 엔딩(대사파일 evenId 2로 수정 후 엔딩 정보 입력)
+                        dialogueManger.ProceedDialogue(isKeeping:true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0-2.csv",isKeeping:true);
+                    }
+                }
+                
+            }
+            
+        }
         
     }
     

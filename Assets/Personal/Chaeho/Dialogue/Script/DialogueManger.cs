@@ -164,6 +164,8 @@ public class DialogueManger : MonoBehaviour
                         isChoosing = true;
                     }
                     break;
+                case 2://엔딩
+                    //게임 엔딩
                 default:
                     break;
             }
