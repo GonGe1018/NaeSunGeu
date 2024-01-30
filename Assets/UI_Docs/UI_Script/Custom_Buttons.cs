@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -9,10 +10,9 @@ public class Custom_Buttons : MonoBehaviour
 {
     private VisualElement root;
     public Button[] Setting_buttons = new Button[5];
-    public GameObject ForMap,ForSet,ForProf, ForMapBg ; Map Mapinst; Prof Profinst; MapBg mapBg;
-    
+    public GameObject ForMap, ForSet, ForProf, ForMapBg; Map Mapinst; Prof Profinst; MapBg mapBg;
 
-
+   
     // Start is called before the first frame update
     void Start()
     {

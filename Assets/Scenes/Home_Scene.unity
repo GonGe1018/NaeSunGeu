@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 955560873}
   dialogueManger: {fileID: 1093358507}
+  upper_bar: {fileID: 349474203}
 --- !u!114 &285685884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,7 +1089,7 @@ GameObject:
   - component: {fileID: 1119414307}
   - component: {fileID: 1119414306}
   m_Layer: 0
-  m_Name: KakaoTalk_20240128_001838266
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

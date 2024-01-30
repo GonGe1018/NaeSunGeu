@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     private int RG = 0, ZR = 0, IW = 0, ED = 0;
 
 
+
     public int getRG
     {
         get { return RG; }
