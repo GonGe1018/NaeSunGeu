@@ -265,7 +265,25 @@ public class ChoiceHandler : MonoBehaviour
             }
             else if (locNum == 3)
             {
+
+                if (choiceNum == 1)
+                {
+                    //알지짱의 배드민턴 대결 수락
+                    //호감도 업 * 2
+                    dialogueManger.ProceedDialogue(isKeeping: true);
+                    dialogueManger.StartDialogue("DialogueCSV/Week3/loc3/dlg0-1.csv", isKeeping: true);
                 
+                    gameManager.SetLove("RG", 10);
+                }
+                else if (choiceNum == 2)
+                {
+                    //알지짱의 배드민턴 대결 수락
+                    //호감도 다운
+                    dialogueManger.ProceedDialogue(isKeeping: true);
+                    dialogueManger.StartDialogue("DialogueCSV/Week3/loc3/dlg0-2.csv", isKeeping: true);
+                
+                    gameManager.SetLove("RG", -5);
+                }
             }
         }
         

@@ -389,8 +389,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1058049857}
     m_Modifications:
     - target: {fileID: 7636787809776896881, guid: c2a597dc280df48b99810f7273443f04, type: 3}
+      propertyPath: startDLG
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636787809776896881, guid: c2a597dc280df48b99810f7273443f04, type: 3}
       propertyPath: testAdress
-      value: DialogueCSV/Week2/loc2/dlg0.csv
+      value: DialogueCSV/Week3/loc3/dlg0.csv
       objectReference: {fileID: 0}
     - target: {fileID: 7636787809776896886, guid: c2a597dc280df48b99810f7273443f04, type: 3}
       propertyPath: m_Pivot.x
