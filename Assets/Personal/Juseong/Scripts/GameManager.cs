@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    /*È÷·ÎÀÎ º° È£°¨µµ*/
+    /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½*/
     private int RG = 0, ZR = 0, IW = 0, ED = 0;
 
 
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     //int window = 0;
 
-    public GameObject UI_Container;//UI°®°íÀÖ´Â °ÔÀÓ¿ÀºêÁ§Æ®
+    public GameObject UI_Container;//UIï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     Upper_Bar upper_Bar;
 
 
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
 
 
-        //UI ¿ä¼Ò °¡Á®¿À±â
+        //UI ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         upper_Bar = UI_Container.GetComponent<Upper_Bar>();
     }
 
@@ -80,32 +80,32 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void Choosen(string str) //¼±ÅÃÁö¿¡ µû¸¥ °ª ¼öÁ¤ (È¸ÀÇ ÈÄ ¼öÁ¤¿¹Á¤)
-    {
-        string[] datas = str.Split('_'); //È÷·ÎÀÎID_È£°¨µµ º¯°æ °ª_±×¿Ü.. ('_(¾ð´õ¹Ù)'·Î µ¥ÀÌÅÍ °ªÀ» ³ª´©´Â ¹æ½Ä
-
-        int heroineID,
-            love;
-
-        if (datas[0] != string.Empty) //È÷·ÎÀÎ ID°ª °¡Á®¿À±â
-        {
-            heroineID = int.Parse(datas[0]);
-        }
-
-        if (datas[1] != string.Empty) //È£°¨µµ º¯°æ °ª °¡Á®¿À±â
-        {
-            love = int.Parse(datas[1]);
-        }
-
-        //±× ¿Ü º¯°æ»çÇ× (Ãß°¡¿¹Á¤)
-
-
-    }
-
-
+    // public void Choosen(string str) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (È¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+    // {
+    //     string[] datas = str.Split('_'); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID_È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½_ï¿½×¿ï¿½.. ('_(ï¿½ï¿½ï¿½ï¿½ï¿½)'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    //
+    //     int heroineID,
+    //         love;
+    //
+    //     if (datas[0] != string.Empty) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //     {
+    //         heroineID = int.Parse(datas[0]);
+    //     }
+    //
+    //     if (datas[1] != string.Empty) //È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //     {
+    //         love = int.Parse(datas[1]);
+    //     }
+    //
+    //     //ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½)
+    //
+    //
+    // }
 
 
-    int SetHP(int value) //Ã¼·Â Áõ°¨ ÇÔ¼ö
+
+
+    int SetHP(int value) //Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
         if (hp + value < 0) return 1;
 
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         if (hp >= 100) { hp = 100; }
 
 
-        //UI º¯È¯
+        //UI ï¿½ï¿½È¯
         upper_Bar.HealthChange();
 
         return 0;
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void setLove(string ID, int val)
+    public void SetLove(string ID, int val)
     {
         //RG1 ZR2 IW3 ED4
         switch (ID)

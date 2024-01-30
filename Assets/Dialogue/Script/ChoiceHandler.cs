@@ -30,8 +30,8 @@ public class ChoiceHandler : MonoBehaviour
                     dialogueManger.StartDialogue("DialogueCSV/Prologue/dlg0-1.csv", isKeeping: true);
 
                     //호감도
-                    gameManager.setLove("ZR", 5);
-                    gameManager.setLove("IW", -5);
+                    gameManager.SetLove("ZR", 5);
+                    gameManager.SetLove("IW", -5);
                 }
                 else if (choiceNum == 2)
                 {
@@ -39,7 +39,7 @@ public class ChoiceHandler : MonoBehaviour
                     //왑짱이 눈치 줘서 제로짱과 대화 중단
                     dialogueManger.ProceedDialogue(isKeeping: true);
                     dialogueManger.StartDialogue("DialogueCSV/Prologue/dlg0-2.csv", isKeeping: true);
-                    gameManager.setLove("IW", 5);
+                    gameManager.SetLove("IW", 5);
                 }
             }
 
@@ -57,7 +57,7 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0-1.csv", isKeeping: true);
 
-                        gameManager.setLove("IW", 5);
+                        gameManager.SetLove("IW", 5);
 
                     }
                     else if (choiceNum == 2)
@@ -67,7 +67,7 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0-2.csv", isKeeping: true);
 
-                        gameManager.setLove("IW", -5);
+                        gameManager.SetLove("IW", -5);
                     }
                 }
             }
@@ -82,7 +82,7 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc4/dlg0-1.csv", isKeeping: true);
 
-                        gameManager.setLove("ED", 5);
+                        gameManager.SetLove("ED", 7);
                     }
                     else if (choiceNum == 2)
                     {
@@ -91,7 +91,7 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc4/dlg0-2.csv", isKeeping: true);
 
-                        gameManager.setLove("ED", 2);
+                        gameManager.SetLove("ED", 2);
                     }
                 }
             }
@@ -106,7 +106,7 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-1.csv", isKeeping: true);
 
-                        gameManager.setLove("RG", 5);
+                        gameManager.SetLove("RG", 5);
                     }
                     else if (choiceNum == 2)
                     {
@@ -115,7 +115,7 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-2.csv", isKeeping: true);
 
-                        gameManager.setLove("RG", 5);
+                        gameManager.SetLove("RG", 5);
                     }
                 }
                 else if (fileNum == 1)
@@ -125,7 +125,7 @@ public class ChoiceHandler : MonoBehaviour
                     dialogueManger.ProceedDialogue(isKeeping: true);
                     dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0-2.csv", isKeeping: true);
 
-                    gameManager.setLove("RG", 5);
+                    gameManager.SetLove("RG", 5);
                 }
             }
 
@@ -143,12 +143,12 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0-1.csv", isKeeping: true);
 
-                        gameManager.setLove("ED", 5);
+                        gameManager.SetLove("ED", 5);
                     }
                     else if (choiceNum == 2)
                     {
                         //애드짱을 쓰담는 경우
-                        //철컹철컹 엔딩(대사파일 evenId 2로 수정 후 엔딩 정보 입력)
+                        //철컹철컹 엔딩(대사파일 eventId 2로 수정 후 엔딩 정보 입력)
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0-2.csv", isKeeping: true);
 
@@ -168,7 +168,7 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0-1.csv", isKeeping: true);
 
-                        gameManager.setLove("RG", -5);
+                        gameManager.SetLove("RG", -5);
                     }
                     else if (choiceNum == 3)
                     {
@@ -177,7 +177,7 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0-2.csv", isKeeping: true);
 
-                        gameManager.setLove("RG", 5);
+                        gameManager.SetLove("RG", 5);
                     }
                 }
                 else if (fileNum == 1)
@@ -189,7 +189,7 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.ProceedDialogue(isKeeping: true);
                         dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg1-1.csv", isKeeping: true);
 
-                        gameManager.setLove("RG", 5);
+                        gameManager.SetLove("RG", 5);
                     }
                     else if (choiceNum == 2)
                     {
@@ -199,11 +199,76 @@ public class ChoiceHandler : MonoBehaviour
                         dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg1-2.csv", isKeeping: true);
                     }
                 }
-
             }
-
-
+            else if(locNum == 3)
+            {
+                if (fileNum == 0)
+                {
+                    if (choiceNum == 1)
+                    {
+                        //넘어지는 왑짱을 빨리 붙잡아서 국물이 나한테 다 튐
+                        //호감도 업
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc3/dlg0-1.csv", isKeeping: true);
+                        
+                        gameManager.SetLove("IW", 5);
+                    }
+                    else if (choiceNum == 2)
+                    {
+                        //넘어지는 왑짱을 붙잡음
+                        //호감도 업
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc3/dlg0-2.csv", isKeeping: true);
+                        
+                        gameManager.SetLove("IW", 5);
+                    }
+                    else if(choiceNum == 3)
+                    {
+                        //넘어지는 왑짱을 붙잡지 않음
+                        //엔딩
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc3/dlg0-3.csv", isKeeping: true);
+                    }
+                }
+            }
+            else if (locNum == 4)
+            {
+                if (fileNum == 0)
+                {
+                    if (choiceNum == 1)
+                    {
+                        //눈치 챙기고 제로짱의 기타수업을 얌전히 들음
+                        //호감도 업
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc4/dlg0-1.csv", isKeeping: true);
+                        
+                        gameManager.SetLove("ZR", 5);
+                    }
+                    else if (choiceNum == 2)
+                    {
+                        //눈치 없게 실력을 뽐내다가 제로짱의 기타 줄을 끊어먹음
+                        //호감도 대폭 다운
+                        dialogueManger.ProceedDialogue(isKeeping: true);
+                        dialogueManger.StartDialogue("DialogueCSV/Week2/loc4/dlg0-2.csv", isKeeping: true);
+                        
+                        gameManager.SetLove("ZR", -10);
+                    }
+                    
+                }
+            }
         }
+        else if (weekNum == 3)
+        {
+            if (locNum == 1)
+            {
+                
+            }
+            else if (locNum == 3)
+            {
+                
+            }
+        }
+        
 
     }
 
