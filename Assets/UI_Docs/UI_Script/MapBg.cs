@@ -15,7 +15,6 @@ public class MapBg : MonoBehaviour
         map = root.Q<VisualElement>("Map_Bottom");
         MapIn();
 
-       
 
       
     }

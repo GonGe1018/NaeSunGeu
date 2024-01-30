@@ -67,11 +67,15 @@ public class DialogueManger : MonoBehaviour
     private string currentAdress;
 
     [SerializeField] private string testAdress;
+
+
+    public bool startDLG = false;
     
     private void Start()
     {
         //Week1/loc1/dlg0.csv
-        StartDialogue(testAdress);    
+        if(startDLG) { StartDialogue(testAdress); }
+       
     }
     
     // Update is called once per frame

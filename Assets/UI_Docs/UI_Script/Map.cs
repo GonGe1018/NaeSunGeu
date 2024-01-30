@@ -7,6 +7,9 @@ public class Map : MonoBehaviour
 {
     private VisualElement root, map;
     private Button[] buttons= new Button[6];
+    [SerializeField]  GameManager gameManager;
+    [SerializeField] DialogueManger dialogueManger;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +51,10 @@ public class Map : MonoBehaviour
             case "loc1":
                 //1호관 클릭시
                 print("1호관 테스트");
+
+                if (gameManager.WEEK == 1)
+                    dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0.csv");
+
                 break;
 
             case "loc2":
@@ -60,6 +67,9 @@ public class Map : MonoBehaviour
 
             case "loc4":
                 //4호관 클릭시
+
+                if (gameManager.WEEK == 1)
+                    dialogueManger.StartDialogue("DialogueCSV/Week1/loc4/dlg0.csv");
                 break;
 
             case "loc5":
@@ -68,6 +78,8 @@ public class Map : MonoBehaviour
 
             case "loc6":
                 //운동장
+                if (gameManager.WEEK == 1)
+                    dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0.csv");
                 break;
         }
         

@@ -27,8 +27,8 @@ public class Prof : MonoBehaviour
         cha[2].Q<TextElement>("Name").text = "최이왑";
         cha[3].Q<TextElement>("Name").text = "정에드";
 
-        cha[0].Q<TextElement>("Number").text = gameManager.getRG.ToString()+"%";
-        cha[1].Q<TextElement>("Number").text = gameManager.getZR.ToString()+"%";
+        cha[0].Q<TextElement>("Number").text = gameManager.getRG.ToString() + "%";
+        cha[1].Q<TextElement>("Number").text = gameManager.getZR.ToString() + "%";
         cha[2].Q<TextElement>("Number").text = gameManager.getIW.ToString() + "%";
         cha[3].Q<TextElement>("Number").text = gameManager.getED.ToString() + "%";
 
@@ -45,10 +45,15 @@ public class Prof : MonoBehaviour
     public void ProfIn()
     {
         profile.AddToClassList("Prof_In");
+        cha[0].Q<TextElement>("Number").text = gameManager.getRG.ToString() + "%";
+        cha[1].Q<TextElement>("Number").text = gameManager.getZR.ToString() + "%";
+        cha[2].Q<TextElement>("Number").text = gameManager.getIW.ToString() + "%";
+        cha[3].Q<TextElement>("Number").text = gameManager.getED.ToString() + "%";
     }
 
     public void ProfOut()
     {
         profile.RemoveFromClassList("Prof_In");
+       // gameObject.SetActive(false);
     }
 }

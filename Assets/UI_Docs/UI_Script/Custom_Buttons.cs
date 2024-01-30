@@ -9,7 +9,7 @@ public class Custom_Buttons : MonoBehaviour
 {
     private VisualElement root;
     public Button[] Setting_buttons = new Button[5];
-    public GameObject ForMap,ForSet,ForProf, ForMapBg; Map Mapinst; Prof Profinst; MapBg mapBg;
+    public GameObject ForMap,ForSet,ForProf, ForMapBg ; Map Mapinst; Prof Profinst; MapBg mapBg;
     
 
 
@@ -76,6 +76,7 @@ public class Custom_Buttons : MonoBehaviour
                         Mapinst.MapOut();
                         mapBg.MapOut();
                     }
+                    
 
                     else
                     {
@@ -86,9 +87,14 @@ public class Custom_Buttons : MonoBehaviour
 
                     if(buttonName=="Settings")
                         ForSet.SetActive(true);
-                    if (buttonName== "Profile")
+                    if (buttonName == "Profile")
+                    {
                         Profinst.ProfIn();
-                    else Profinst.ProfOut();
+                    }
+                    else
+                    { 
+                        Profinst.ProfOut();
+                    }
                 }
             }
             print(buttonName);

@@ -29,7 +29,7 @@ public class Upper_Bar : MonoBehaviour
 
     private void Start()
     {
-        week = gameManager.week;
+        week = gameManager.WEEK;
         health = gameManager.hp;
 
         WeekChange();

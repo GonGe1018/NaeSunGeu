@@ -30,7 +30,11 @@ public class GameManager : MonoBehaviour
 
 
 
-    public int week = 1;
+    protected int week = 1;
+    public int WEEK
+    {
+        get { return week; } set { week = value; }
+    }
     public int hp = 100;
 
     int[] heroines = new int[4]; //0:RG, 1:Zero, 2:Wop, 3:Ed

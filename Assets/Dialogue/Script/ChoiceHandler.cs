@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChoiceHandler : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] public GameManager gameManager;
     [SerializeField] private DialogueManger dialogueManger;
 
     //주의!! Exute 함수는 게임 특성상 다양한 분기점이 존재함이 이유로서, 매우 더럽습니다. 꼼꼼히 보고 수정하시기 바랍니다.
