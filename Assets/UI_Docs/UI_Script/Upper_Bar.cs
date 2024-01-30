@@ -42,7 +42,7 @@ public class Upper_Bar : MonoBehaviour
     {
         week = gameManager.WEEK;
         health = gameManager.hp;
-        UpTexts[0].text = "week "+week.ToString();
+        UpTexts[0].text = week.ToString() + "주차";
     }
 
     public void HealthChange()

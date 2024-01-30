@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -68,19 +69,22 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
-
-
         //UI ��� ��������
         upper_Bar = UI_Container.GetComponent<Upper_Bar>();
     }
 
-
+    
     void Update()
     {
 
     }
 
+    public void LoadStartScene()
+    {
+        SceneManager.LoadScene("Start_Scene");
+    }
+    
+    
     // public void Choosen(string str) //�������� ���� �� ���� (ȸ�� �� ��������)
     // {
     //     string[] datas = str.Split('_'); //������ID_ȣ���� ���� ��_�׿�.. ('_(�����)'�� ������ ���� ������ ���

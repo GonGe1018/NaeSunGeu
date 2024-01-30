@@ -53,6 +53,7 @@ public class DialogueManger : MonoBehaviour
     [SerializeField] private IllustHandler backgroundIllust;//스탠딩 일러 매니저
     [SerializeField] private EffectManager effectManager;//효과 매니저
     [SerializeField] private ChoiceManager choiceManager;
+    [SerializeField] private GameManager gameManager;
 
     [SerializeField] public TMP_Text nameText;
     [SerializeField] public TMP_Text contentText;
@@ -169,7 +170,8 @@ public class DialogueManger : MonoBehaviour
                     }
                     break;
                 case 2://엔딩
-                    //게임 엔딩
+                    gameManager.LoadStartScene();
+                    break;
                 default:
                     break;
             }
