@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
- 
+
+    public Button bgmon, bgmoff;
+    public bool on = false;
+
+   // public Button mute;
 
     [SerializeField] private float BGMSound = 0.2f;
     public float bgmsound
@@ -61,7 +68,9 @@ public class SoundManager : MonoBehaviour
       //  customSlider.BgmValue = ((int)(BGMSound*100f));
        // customSlider.EffectValue = ((int)(effectSound*100f));
 //설정창 열리면 
+
         
+   
     }
 
 
@@ -71,17 +80,33 @@ public class SoundManager : MonoBehaviour
         { bgmHandler[0].GetComponent<AudioSource>().volume = val; }
 
     }
+  
+    public void buttonMute ()
+    {
+        if(on)
+        {
+            BGMStop(0);
+            on = !on;
+        }
+         else
+        {
+        BGMStart(0);
+            on = !on;
+        }
+    }
 
     public void BGMStop(int i) //BGM 정지 인덱스값 받아와서 i번째 bgm 멈춤 
     {
         //i번 BGM 멈춤 
         
         bgmHandler[i].GetComponent<AudioSource>().Stop();
+       
     }
 
     public void BGMStart(int i)
     {
         bgmHandler[i].GetComponent<AudioSource>().Play();
+       
     }
 
     public void SFXvolume(float val) //BGM 음량 조절 함수 (0 <= val <= 1)
