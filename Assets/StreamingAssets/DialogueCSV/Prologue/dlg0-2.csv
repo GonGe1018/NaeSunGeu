@@ -1,4 +1,4 @@
 name,content,illustId,illustCategori,backgroundId,backgroundCategori,effectId,effectParam,bgmId,soundId,eventId,eventParam
-나,(이정도면 충분히 많이 친해진거 같아..),0,0,0,0,,,,,,
-나,제로짱 나 화장실 좀 다녀올게~,0,0,0,0,,,,,,
-나,(왑짱의 얼굴이 좀 풀린거 같네),3,1,0,0,,,,,,
+나,(이정도면 충분히 많이 친해진거 같아..),0,0,1,1,,,,,,
+나,제로짱 나 화장실 좀 다녀올게~,0,0,1,1,,,,,,
+나,(왑짱의 얼굴이 좀 풀린거 같네),3,1,1,1,,,,,,

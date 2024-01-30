@@ -1,6 +1,6 @@
 name,content,illustId,illustCategori,backgroundId,backgroundCategori,effectId,effectParam,bgmId,soundId,eventId,eventParam
-알지짱,뭐...?,,,,,,,,,,
-알지짱,그거 우리 태어나기 수십년 전에 나온 거 아니야..?,,,,,,,,,,
-알지짱,너 틀딱이야?,,,,,,,,,,
-나,(너무 틀딱씹덕처럼 보였나..?),,,,,,,,,,
-나,어.. 그게..,,,,,,,,,1,DialogueCSV/Week2/loc2/c1.csv
+알지짱,뭐...?,,,2,1,,,,,,
+알지짱,그거 우리 태어나기 수십년 전에 나온 거 아니야..?,,,2,1,,,,,,
+알지짱,너 틀딱이야?,,,2,1,,,,,,
+나,(너무 틀딱씹덕처럼 보였나..?),,,2,1,,,,,,
+나,어.. 그게..,,,2,1,,,,,1,DialogueCSV/Week2/loc2/c1.csv
