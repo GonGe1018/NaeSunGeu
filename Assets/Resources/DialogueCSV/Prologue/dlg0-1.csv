@@ -1,4 +1,4 @@
 name,content,illustId,illustCategori,backgroundId,backgroundCategori,effectId,effectParam,bgmId,soundId,eventId,eventParam
-제로짱,이러쿵~ 저러쿵~ 선린은 말이야~,0,1,0,0,,,,,,
-나,(어.. 왑짱이 계속 째려보는거 같은데..?),3,3,0,0,,,,,,
-나,(제로짱이랑 계속 신나게 대화하는게 맞는걸까?),3,3,0,0,,,,,1,DialogueCSV/Prologue/c0.csv
+제로짱,이러쿵~ 저러쿵~ 선린은 말이야~,0,1,1,1,,,,,,
+나,(어.. 왑짱이 계속 째려보는거 같은데..?),3,3,1,1,,,,,,
+나,(제로짱이랑 계속 신나게 대화하는게 맞는걸까?),3,3,1,1,,,,,1,DialogueCSV/Prologue/c0.csv

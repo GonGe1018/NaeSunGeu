@@ -8,7 +8,7 @@ public class MapBg : MonoBehaviour
     private Button[] buttons= new Button[6];
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         map = root.Q<VisualElement>("Map_Bottom");

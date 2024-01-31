@@ -242,6 +242,7 @@ public class DialogueManger : MonoBehaviour
     
     public void StartDialogue(string dialogueAdress="", int startIndex=0, bool isKeeping = false)
     {
+        CloseUIToolkit();
         if(!isExecuting || isKeeping)
         {
             if (dialogueAdress != "")
@@ -282,6 +283,7 @@ public class DialogueManger : MonoBehaviour
         }
         Debug.Log($"다이얼로그 종료");
         isExecuting = false;
+        OpenUIToolkit();
     }
     
     public void ProceedDialogue(bool isKeeping = false)

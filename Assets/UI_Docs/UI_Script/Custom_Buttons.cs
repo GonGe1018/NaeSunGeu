@@ -10,7 +10,7 @@ public class Custom_Buttons : MonoBehaviour
 
    
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         Setting_buttons[0] = root.Q<Button>("Settings");

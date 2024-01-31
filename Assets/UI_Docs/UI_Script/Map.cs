@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,8 +16,17 @@ public class Map : MonoBehaviour
 
     private bool[] storyCount= new bool[6];
 
+    private void Start()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            storyCount[i] = false;
+
+        }
+    }
+
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         map = root.Q<VisualElement>("Map_Bottom");
@@ -31,7 +41,6 @@ public class Map : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            storyCount[i] = false;
             buttons[i].RegisterCallback<ClickEvent>(OnButtonClicked);
         }
     }

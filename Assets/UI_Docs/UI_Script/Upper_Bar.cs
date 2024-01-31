@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,7 +12,7 @@ public class Upper_Bar : MonoBehaviour
     public GameObject GM_container;
 
     // Start is called before the first frame update
-    void Awake()
+    void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         UpTexts[0] = root.Q<TextElement>("Ftext");
@@ -22,17 +23,21 @@ public class Upper_Bar : MonoBehaviour
 
         gameManager = GM_container.GetComponent<GameManager>();
         if(gameManager==null)print("gm missing");
-
-    }
-
-    private void Start()
-    {
+        
         week = gameManager.WEEK;
         health = gameManager.hp;
 
         WeekChange();
         HealthChange();
+
     }
+
+   // private void OnDisable()
+    // {
+    //     WeekChange();
+    //     HealthChange();
+    // }
+
 
     // Update is called once per frame
 
