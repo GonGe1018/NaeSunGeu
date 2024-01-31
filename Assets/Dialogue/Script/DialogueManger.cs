@@ -52,7 +52,8 @@ public class DialogueManger : MonoBehaviour
     [SerializeField] private EffectManager effectManager;//효과 매니저
     [SerializeField] private ChoiceManager choiceManager;
     [SerializeField] private GameManager gameManager;
-
+    [SerializeField] private GameObject uiPrime;
+    
     [SerializeField] public TMP_Text nameText;
     [SerializeField] public TMP_Text contentText;
 
@@ -65,7 +66,7 @@ public class DialogueManger : MonoBehaviour
 
     private string currentAdress;
 
-    [SerializeField] private string testAdress;
+    [SerializeField] private string startAdress;
 
 
     public bool startDLG = false;
@@ -73,7 +74,11 @@ public class DialogueManger : MonoBehaviour
     private void Start()
     {
         //Week1/loc1/dlg0.csv
-        if(startDLG) { StartDialogue(testAdress); }
+        if (startDLG)
+        {
+            StartDialogue(startAdress); 
+            CloseUIToolkit();
+        }
        
     }
     
@@ -89,7 +94,17 @@ public class DialogueManger : MonoBehaviour
             StartDialogue(dialogueAdress: "/Src/Dialogue/CSV/Prologue.csv", startIndex: 0);
         }*/
     }
-    
+
+
+    void CloseUIToolkit()
+    {
+        uiPrime.SetActive(false);
+    }
+
+    void OpenUIToolkit()
+    {
+        uiPrime.SetActive(true);
+    }
     
     
     void ShowDialogue(Dialouge dialogue)//현재 위치의 대화를 화면에 표시
@@ -169,6 +184,10 @@ public class DialogueManger : MonoBehaviour
                     break;
                 case 2://엔딩
                     gameManager.LoadStartScene();
+                    break;
+                case 3://프롤로그 종료
+                    ProceedDialogue();
+                    OpenUIToolkit();
                     break;
                 default:
                     break;

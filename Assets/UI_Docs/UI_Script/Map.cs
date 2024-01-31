@@ -8,7 +8,8 @@ public class Map : MonoBehaviour
     private Button[] buttons= new Button[6];
     [SerializeField]  GameManager gameManager;
     [SerializeField] DialogueManger dialogueManger;
-    [SerializeField] Upper_Bar upper_bar;   
+    [SerializeField] Upper_Bar upper_bar;
+    [SerializeField] private MapBg _mapBg;
 
    // private bool[] loveCount = new bool[6];
 
@@ -57,7 +58,8 @@ public class Map : MonoBehaviour
             case "loc1":
                 //1호관 클릭시
                 print("1호관 테스트");
-
+                MapIn();
+               _mapBg.MapIn(); 
                 if ((gameManager.WEEK == 1)&& !storyCount[0])
                 {
                     dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0.csv");
@@ -68,30 +70,38 @@ public class Map : MonoBehaviour
                     dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0.csv");
                     storyCount[0] = true;
                 }
+                
+                
                 break;
 
             case "loc2":
                 //2호관 클릭시
-
+                MapIn();
+                _mapBg.MapIn(); 
                   if ((gameManager.WEEK == 2) && !storyCount[1])
                 {
                     dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0.csv");
                     storyCount[0] = true;
                 }
+
                 break;
 
             case "loc3":
                 //3호관 클릭시
+                MapIn();
+                _mapBg.MapIn(); 
                 if ((gameManager.WEEK == 2) && !storyCount[2])
                 {
                     dialogueManger.StartDialogue("DialogueCSV/Week2/loc3/dlg0.csv");
                     storyCount[0] = true;
                 }
+
                 break;
 
             case "loc4":
                 //4호관 클릭시
-
+                MapIn();
+                _mapBg.MapIn(); 
                 if ((gameManager.WEEK == 1) && !storyCount[3] )
                 {
                     dialogueManger.StartDialogue("DialogueCSV/Week1/loc4/dlg0.csv");
@@ -102,18 +112,25 @@ public class Map : MonoBehaviour
                     dialogueManger.StartDialogue("DialogueCSV/Week2/loc4/dlg0.csv");
                     storyCount[0] = true;
                 }
+            
                 break;
 
             case "loc5":
+                MapIn();
+                _mapBg.MapIn(); 
                 //기숙사
+
                 break;
 
             case "loc6":
                 //운동장
+                MapIn();
+                _mapBg.MapIn(); 
                 if ((gameManager.WEEK == 1) && !storyCount[5])
                 { dialogueManger.StartDialogue("DialogueCSV/Week1/loc6/dlg0.csv");
                     storyCount[5]=true;
                 }
+                
                 break;
 
 

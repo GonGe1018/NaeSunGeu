@@ -233,6 +233,7 @@ MonoBehaviour:
   gameManager: {fileID: 955560873}
   dialogueManger: {fileID: 1093358507}
   upper_bar: {fileID: 349474203}
+  _mapBg: {fileID: 2022101455}
 --- !u!114 &285685884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,11 +973,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 955560873}
     - target: {fileID: 7636787809776896881, guid: c2a597dc280df48b99810f7273443f04, type: 3}
+      propertyPath: uiPrime
+      value: 
+      objectReference: {fileID: 1128820399}
+    - target: {fileID: 7636787809776896881, guid: c2a597dc280df48b99810f7273443f04, type: 3}
       propertyPath: startDLG
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7636787809776896881, guid: c2a597dc280df48b99810f7273443f04, type: 3}
       propertyPath: testAdress
+      value: DialogueCSV/Prologue/dlg0.csv
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636787809776896881, guid: c2a597dc280df48b99810f7273443f04, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 955560873}
+    - target: {fileID: 7636787809776896881, guid: c2a597dc280df48b99810f7273443f04, type: 3}
+      propertyPath: startAdress
       value: DialogueCSV/Prologue/dlg0.csv
       objectReference: {fileID: 0}
     - target: {fileID: 7636787809776896886, guid: c2a597dc280df48b99810f7273443f04, type: 3}
@@ -1278,7 +1291,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1506105246}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
