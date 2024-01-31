@@ -64,14 +64,30 @@ public class Map : MonoBehaviour
                     dialogueManger.StartDialogue("DialogueCSV/Week1/loc1/dlg0.csv");
                     storyCount[0]=true;
                 }
+                else if ((gameManager.WEEK == 2)&& !storyCount[0])
+                {
+                    dialogueManger.StartDialogue("DialogueCSV/Week2/loc1/dlg0.csv");
+                    storyCount[0] = true;
+                }
                 break;
 
             case "loc2":
                 //2호관 클릭시
+
+                  if ((gameManager.WEEK == 2) && !storyCount[1])
+                {
+                    dialogueManger.StartDialogue("DialogueCSV/Week2/loc2/dlg0.csv");
+                    storyCount[0] = true;
+                }
                 break;
 
             case "loc3":
                 //3호관 클릭시
+                if ((gameManager.WEEK == 2) && !storyCount[2])
+                {
+                    dialogueManger.StartDialogue("DialogueCSV/Week2/loc3/dlg0.csv");
+                    storyCount[0] = true;
+                }
                 break;
 
             case "loc4":
@@ -81,6 +97,11 @@ public class Map : MonoBehaviour
                 {
                     dialogueManger.StartDialogue("DialogueCSV/Week1/loc4/dlg0.csv");
                     storyCount[3]=true;
+                }
+                if ((gameManager.WEEK == 2) && !storyCount[3])
+                {
+                    dialogueManger.StartDialogue("DialogueCSV/Week2/loc4/dlg0.csv");
+                    storyCount[0] = true;
                 }
                 break;
 

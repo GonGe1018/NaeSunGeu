@@ -65,6 +65,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Screen.SetResolution(1080, 2340, false);
+
+
     }
 
     void Start()
@@ -81,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadStartScene()
     {
-        SceneManager.LoadScene("Start_Scene");
+        SceneManager.LoadScene("StartScene");
     }
     
     

@@ -944,7 +944,7 @@ MonoBehaviour:
   UI_Container: {fileID: 349474199}
   autoSkip: 0
   autoPlay: 0
-  dialogueManger: {fileID: 0}
+  dialogueManger: {fileID: 1093358507}
 --- !u!4 &955560874
 Transform:
   m_ObjectHideFlags: 0
@@ -1062,6 +1062,10 @@ PrefabInstance:
     - target: {fileID: 7636787809776896887, guid: c2a597dc280df48b99810f7273443f04, type: 3}
       propertyPath: m_Name
       value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636787809933233900, guid: c2a597dc280df48b99810f7273443f04, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2a597dc280df48b99810f7273443f04, type: 3}

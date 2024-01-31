@@ -12,6 +12,11 @@ public class Start_UI : MonoBehaviour
 
     Button load, start, exit;
 
+    private void Awake()
+    {
+        Screen.SetResolution(1080, 2340, false);
+    }
+
     private void Start()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
