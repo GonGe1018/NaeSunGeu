@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.U2D.Sprites;
+
 using UnityEngine;
-using UnityEngine.Audio;
+
 using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour

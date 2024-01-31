@@ -1,11 +1,9 @@
-using System;
-using JetBrains.Annotations;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting.FullSerializer;
-using UnityEngine.Serialization;
+
 
 public class Dialouge//다이얼로그 객체
 {

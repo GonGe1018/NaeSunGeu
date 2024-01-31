@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Screen.SetResolution(1080, 2340, false);
+        //Screen.SetResolution(1080, 1920, false);
 
 
     }

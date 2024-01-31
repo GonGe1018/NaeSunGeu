@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
@@ -14,7 +12,7 @@ public class Start_UI : MonoBehaviour
 
     private void Awake()
     {
-        Screen.SetResolution(1080, 2340, false);
+       // Screen.SetResolution(1080, 1920, false);
     }
 
     private void Start()
