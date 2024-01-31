@@ -76,8 +76,8 @@ public class DialogueManger : MonoBehaviour
         //Week1/loc1/dlg0.csv
         if (startDLG)
         {
-            StartDialogue(startAdress); 
             CloseUIToolkit();
+            StartDialogue(startAdress); 
         }
        
     }
