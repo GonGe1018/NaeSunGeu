@@ -53,13 +53,12 @@ public class Start_UI : MonoBehaviour
     }
     void ExitGame(ClickEvent evt)
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit(); // 어플리케이션 종료
-#endif
-
-
+        Application.Quit();
+        // #if UNITY_EDITOR
+        //         UnityEditor.EditorApplication.isPlaying = false;
+        // #else
+        //         Application.Quit(); // 어플리케이션 종료
+        // #endif
     }
     private void LoadGame(ClickEvent evt)
     {
